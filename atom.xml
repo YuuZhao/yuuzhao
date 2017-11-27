@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-27T16:00:44.611Z</updated>
+  <updated>2017-11-27T16:06:57.834Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/2017/11/27/Problem-of-npm-install-hexo-generator-feed/"/>
     <id>http://yoursite.com/2017/11/27/Problem-of-npm-install-hexo-generator-feed/</id>
     <published>2017-11-27T15:53:52.000Z</published>
-    <updated>2017-11-27T16:00:44.611Z</updated>
+    <updated>2017-11-27T16:06:57.834Z</updated>
     
-    <content type="html"><![CDATA[<p>#Problem<br>‘’’<br>$ npm install hexo-generator-feed<br>hexo-site@0.0.0 D:\Workspaces\hexo<br>`– hexo-generator-feed@1.2.2</p><p>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):<br>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.3: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”win32”,”arch”:”x64”})</p><p>‘’’</p><p>#DESCRIPTION</p><a id="more"></a><p>#解决方法</p><p>明天再解决</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>‘’’<br>$ npm install hexo-generator-feed<br>hexo-site@0.0.0 D:\Workspaces\hexo– hexo-generator-feed@1.2.2</p><p>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):<br>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.3: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”win32”,”arch”:”x64”})</p><p>‘’’ </p><h1 id="DESCRIPTION"><a href="#DESCRIPTION" class="headerlink" title="DESCRIPTION"></a>DESCRIPTION</h1><a id="more"></a><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>明天再解决</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;#Problem&lt;br&gt;‘’’&lt;br&gt;$ npm install hexo-generator-feed&lt;br&gt;hexo-site@0.0.0 D:\Workspaces\hexo&lt;br&gt;`– hexo-generator-feed@1.2.2&lt;/p&gt;
+      &lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;&lt;p&gt;‘’’&lt;br&gt;$ npm install hexo-generator-feed&lt;br&gt;hexo-site@0.0.0 D:\Workspaces\hexo– hexo-generator-feed@1.2.2&lt;/p&gt;
 &lt;p&gt;npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):&lt;br&gt;npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.3: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”win32”,”arch”:”x64”})&lt;/p&gt;
-&lt;p&gt;‘’’&lt;/p&gt;
-&lt;p&gt;#DESCRIPTION&lt;/p&gt;
+&lt;p&gt;‘’’ &lt;/p&gt;
+&lt;h1 id=&quot;DESCRIPTION&quot;&gt;&lt;a href=&quot;#DESCRIPTION&quot; class=&quot;headerlink&quot; title=&quot;DESCRIPTION&quot;&gt;&lt;/a&gt;DESCRIPTION&lt;/h1&gt;
     
     </summary>
     
