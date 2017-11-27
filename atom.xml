@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-27T16:27:33.260Z</updated>
+  <updated>2017-11-27T16:32:26.908Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2017/11/28/hexo-d-failed/"/>
     <id>http://yoursite.com/2017/11/28/hexo-d-failed/</id>
     <published>2017-11-27T16:25:50.000Z</published>
-    <updated>2017-11-27T16:27:33.260Z</updated>
+    <updated>2017-11-27T16:32:26.908Z</updated>
     
     <content type="html"><![CDATA[<p>#PROBLEM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lenovo@Lenovo-PC MINGW32 /d/Workspaces/hexo (master)</span><br><span class="line">$ hexo d</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">[master 489a9cb] Site updated: 2017-11-28 00:22:39</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure></p><p>两种情况都不能更新，而且网站访问不正常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lenovo@Lenovo-PC MINGW32 /d/Workspaces/hexo (master)</span><br><span class="line">$ hexo d</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -35,7 +35,7 @@
     </summary>
     
     
-      <category term="bugs" scheme="http://yoursite.com/tags/bugs/"/>
+      <category term="bug" scheme="http://yoursite.com/tags/bug/"/>
     
   </entry>
   
