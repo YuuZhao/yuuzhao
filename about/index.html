@@ -1,13 +1,45 @@
-extends base
-block title
-  title= page.title + ' | ' + config.title
+extends ./_partial/layout.pug
 block content
-  .post
-    h1.post-title= page.title
-    .post-content
-      != page.content
-  if page.donate
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
-  if page.comments
-    include _partial/comments.pug
-
+  include ./_partial/post_header.pug
+  .article-content(style='max-width:'+ theme.content_width +'px')
+    if page.photos && page.photos.length
+      div
+        each photo in page.photos
+          a.article-gallery-img.fancybox(href=photo)
+            img(src=photo)
+    | !{page.content}
+  .article-meta(style='max-width:'+ theme.content_width +'px')
+    if page.tags && page.tags.length
+      .tags
+        i.icon.icon-tag
+        | !{list_tags(page.tags)}
+    if page.tags && page.categories.length
+      .categories
+        i.icon.icon-category
+        | !{list_categories(page.categories)}
+  if theme.duoshuo.enable
+    .article-comment(style='max-width:'+ theme.content_width +'px')
+      #ds-thread.ds-thread(data-thread-key=page._id, data-title=page.title, data-url=config.url + url_for(page.path), site-name=theme.duoshuo.siteName)
+      script.
+        var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+        var duoshuoQuery = {short_name: siteName};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0] 
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  ul.navication
+    li.home
+      a(href="/")
+        i.icon.icon-home
+    if page.prev && page.prev.path
+      li
+        a(href=url_for(page.prev.path))
+          i.icon.icon-arror-left
+    if page.next && page.next.path
+      li
+        a(href=url_for(page.next.path))
+          i.icon.icon-arror-right
