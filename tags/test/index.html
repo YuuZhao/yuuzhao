@@ -1,8 +1,8 @@
-extends includes/layout.pug
+extends _partial/layout
 
 block content
-  include ./includes/mixins/article-sort.pug
-  #tag
-    .article-sort-title= _p('page.tag') + ' - ' + page.tag
-    +articleSort(page.posts)
-  include includes/pagination.pug
+    include _mixin/post
+    +archivePost()
+    aside.sidebar
+        include _sidebar/tag
+        include _sidebar/post
