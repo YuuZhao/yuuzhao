@@ -291,16 +291,10 @@
       
         
           
+            <a href="/2019/02/17/断章/"><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="http://b59.photo.store.qq.com/psu?/30d6cbef-3b02-4695-aff7-076a4701b12f/2Xqi7DYdfL.aWR.01kMk1jJWmrQwtCWzHchsmiYLVhc!/b/Ye2h1SNwRAAAYv*rNiMtdAAA&amp;a=60&amp;b=59&amp;bo=agJ8AQAAAAABFCY!&amp;yurl=1" alt=""></div></div><div class="group-picture-row"></div></div></div>
+<p>中断することが喜んでください。<br>中断された心の思い出をマッチング<br>が、絶望的<br>準備と方法<br>単語を置く必要がありますを聞く時<br>あなたを理解すると思う、<br>それは、知っていない彼は個人の心で持っていたことが判明<br>彼は、奇妙に精通しています。<br>酸性または苦いも前例のないです。<br>内臓に影響を及ぼす<br>心臓に血液を返す<br>突然の中心すべて重いです。<br>したいです<br>氷のメモリ<br>破壊されて<br>風の分散<br>灰に残っています。</p>
+</a>
           
-中断することが喜んでください。中断された心の思い出をマッチングが、絶望的準備と方法単語を置く必要がありますを聞く時あなたを理解すると思う、それは、知っていない彼は個人の心で持っていたことが判明彼は、奇妙に精通しています。酸性または苦いも前例のないです。内臓に影響を及ぼす心臓に血液を返す突然の中心す
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/17/断章/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -452,19 +446,414 @@
       
         
           
-          Zero-Shot Action Recognition with Error-Correcting Output CodesAbstract
-主旨
+            <h2 id="Zero-Shot-Action-Recognition-with-Error-Correcting-Output-Codes"><a href="#Zero-Shot-Action-Recognition-with-Error-Correcting-Output-Codes" class="headerlink" title="Zero-Shot Action Recognition with Error-Correcting Output Codes"></a>Zero-Shot Action Recognition with Error-Correcting Output Codes</h2><h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li><p>主旨</p>
+<ul>
+<li>本文从采用零样本纠错输出码（ZSECOC）的角度来探索ZSAR(Zero-shot action recognition零样本动作识别)</li>
+<li>文中的提出的零样本纠错输出码（ZSECOC）与传统纠错输出码（ECOC）不同之处在于， 为传统ECOC提供了ZSAR的能力。 </li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>从类级语义和内在数据结构中学习出区分可见类别的ZSECOC 。</li>
+<li>通过将可见类别之间已确定的相关性转移到不可见类别之间来隐式地处理域转移</li>
+<li>开发了一种简单的语义转移策略，用于显式地转换已学习的可见类别嵌入，以更好地适应不可见类别的底层结构。</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>ZSECOC既继承了ECOC的优良特性，又克服了域偏移的问题，使其对ZSAR具有更好的识别能力。</li>
+</ul>
+</li>
+<li><p>评测</p>
+<ul>
+<li>系统地评估了ZSECOC的三个现实行动基准，即奥林匹克运动、HMDB51和UCF101</li>
+<li>实验结果清楚地表明了ZSECOC方法优于目前最先进的方法。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>情景</p>
+<ul>
+<li>健壮的动作识别通常依赖于大量标记的训练示例。然而，在许多实际的场景中，为不断增长的新类别添加足够的示例是非常不适用的</li>
+</ul>
+</li>
+<li><p>目的</p>
+<ul>
+<li>开发一个能够自动识别来自新/不可见类别的操作的动作识别系统。</li>
+</ul>
+</li>
+<li><p>调研方法</p>
+<ul>
+<li><p>零距离学习（Zero-shot learning ,ZSL）</p>
+<ul>
+<li>可以通过标签嵌入(或称为中间表示)来实现，其中语义属性得到了广泛的应用。</li>
+<li>然而，属性通常是手工指定的，而且非常主观，因为它们要么是启发式定义的，要么是由领域专家提供的。特别是对于零样本动作识别(zero-shot action recognition, ZSAR)，基于属性的识别方法存在一些具体的缺陷。</li>
+<li><p>缺陷</p>
+<ul>
+<li>首先，动作通常由“动词”定义，它们缺乏定义良好的类层次关系。其次，动态操作比对象更复杂，因此很难为不同的操作指定合适的属性池。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字嵌入（ word embeddings）</p>
+<ul>
+<li>通过使用来自大型文本语料库(例如wikipedia)的单词向量，我们只需要类别名称来构建标签嵌入，而不需要耗时的手动指定属性。</li>
+<li><p>缺陷</p>
+<ul>
+<li>然而，嵌入空间的维数m通常较高(通常为m &gt;1000)，因此对于需要训练m个可视化语义映射函数(即从视觉特征到标签嵌入的投影)。</li>
+<li>此外，词向量只考虑类别名称的文本分布式表示，没有考虑原始的可视化数据结构。这将直接导致最终ZSAR的识别能力较差。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>期望的方法ECOC</p>
+<ul>
+<li>因此，我们非常希望寻找一种有区别的、可伸缩的、可以绕过上述缺陷的标签嵌入。通过仔细研究ZSAR的本质，我们发现我们的目标直观上等同于设计分类级纠错输出代码(ECOC)。</li>
+<li><p>优点</p>
+<ul>
+<li><p>Error-correcting abilities.</p>
+<ul>
+<li>通过使用一些冗余位，我们可以容忍一定程度的错误1。利用这一特性可以增强ZSAR的鲁棒性。</li>
+</ul>
+</li>
+<li><p>High efficiency.</p>
+<ul>
+<li>只需少量位元，二进制码匹配速度极快，可实现大规模的ZSAR。</li>
+</ul>
+</li>
+<li><p>Accurate binary classification for each bit.</p>
+<ul>
+<li>这可能导致可靠的可视化语义映射。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缺陷</p>
+<ul>
+<li>然而，以往的ECOC研究大多针对多类分类，对ZSL的研究较少。这可能是因为直接使用训练在可见类别上的分类器来预测不可见实例将导致较差的性能(称为域移位[23])</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本文方法</p>
+<ul>
+<li>具体地说，我们从从大规模文本语料库中获取的分类级语义关联中推导出判别ZSECOC，即谷歌新闻(≈1000亿字)。</li>
+<li>类别之间的语义关联就像一条隧道，将重要的知识从可见的类别隐式地转移到不可见的类别，例如，未知的“三级跳”可以从“跳高”和“跳远”中学习。</li>
+<li>这种知识转移可以在一定程度上解决领域转移问题。在设计判别ZSECOC时，除了保留语义外，还考虑了视觉数据固有的局部结构。</li>
+<li>此外，与需要从不可见类别中访问可视数据的转导方法[23,59,60]不同，我们开发了一种不使用任何不可见数据的简单语义转移策略，为不可见类别生成有效的ZSECOC。</li>
+<li>这种策略显式地转换了可见类别的学习嵌入，以更好地适应不可见类别的底层语义结构。这样可以进一步消除域偏移的影响。</li>
+</ul>
+</li>
+<li><p>本文主要贡献</p>
+<ul>
+<li><p>1</p>
+<ul>
+<li>通过设计有区别的ZSECOC来解决ZSAR问题。我们利用定义良好的类层次关系的词向量，通过发现所见类别之间的语义相关性，定量地度量它们，从而使传统的ECOC具备了ZSAR的能力。</li>
+<li>已建立的语义知识进一步转移到语义相关的无形范畴。因此，提出的ZSECOC既继承了ECOC的固有优势，又克服了域偏移的问题。</li>
+</ul>
+</li>
+<li><p>2</p>
+<ul>
+<li>除了保留类别级语义外，我们的ZSECOC还包含实例级可视数据结构。针对这一问题，提出了一种联合优化框架。高质量的ZSECOC是通过高效的离散优化直接学习的，没有任何松弛。</li>
+</ul>
+</li>
+<li><p>3</p>
+<ul>
+<li>针对奥运会运动项目[39]、HMDB51[24]和UCF101[53]这三个真实的视频动作数据集，对提出的ZSECOC进行了系统的评价。</li>
+<li>就ZSAR而言，最先进的性能清楚地展示了我们方法的优越性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Zero-shot-Learning-Using-Synthesised-Unseen-Visual-Data-with-Diffusion-Regularisation"><a href="#Zero-shot-Learning-Using-Synthesised-Unseen-Visual-Data-with-Diffusion-Regularisation" class="headerlink" title="Zero-shot Learning Using Synthesised Unseen Visual Data with Diffusion Regularisation"></a>Zero-shot Learning Using Synthesised Unseen Visual Data with Diffusion Regularisation</h2><h3 id="Abstract-1"><a href="#Abstract-1" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li><p>背景</p>
+<ul>
+<li>零距离学习(Zero-shot Learning, ZSL)利用视觉属性或自然语言语义作为中间层线索，将低层特征与高层类关联起来，这是该思想的一个新颖扩展</li>
+</ul>
+</li>
+<li><p>目标</p>
+<ul>
+<li>我们的目标是仅使用语义属性来合成新类的训练数据。</li>
+</ul>
+</li>
+<li><p>挑战</p>
+<ul>
+<li>首先，如何防止合成数据过度拟合到训练组?</li>
+<li>其次，如何保证合成的数据对ZSL任务具有鉴别性?</li>
+<li>第三，我们观察到只有少数维度的学习特征获得高的方差，而其余的大部分维度没有提供信息。</li>
+</ul>
+</li>
+<li><p>如何解决</p>
+<ul>
+<li>问题是如何使集中的信息扩散到合成数据的大部分维度。</li>
+<li>提出了一种新的嵌入算法，即不可见视觉数据合成(UVDS)算法，该算法将语义特征投射到高维视觉特征空间中。</li>
+<li><p>在我们提出的算法中引入了两种主要的技术。</p>
+<ul>
+<li>我们引入了一个潜在的嵌入空间，旨在调和视觉空间和语义空间的结构差异，同时保留局部结构。</li>
+<li>我们提出了一种新的扩散正则化(DR)，它明确地迫使方差扩散到合成数据的大多数维度上。通过正交旋转(更准确的说是正交变换)，DR可以去除冗余的相关属性，进一步缓解过拟合问题。</li>
+</ul>
+</li>
+<li><p>效果</p>
+<ul>
+<li>在四个基准数据集上，我们展示了使用合成的不可见数据进行零距离学习的好处。大量的实验结果表明，我们提出的方法明显优于最先进的方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>ZSL</p>
+<ul>
+<li>利用一组封闭的语义模型，这些模型可以泛化成越来越多的新类[1]、[2]、[3]、[4]。因为语义信息可以通过人类知识获得，所以可以动态地创建新类，而不需要收集任何新的可视化数据。</li>
+<li>共同范式的灵感来自于人类仅仅通过了解概念描述就可以识别新事物，因为我们可以将概念与我们之前的知识联系起来。</li>
+<li><p>遵循这种思想，ZSL的第一步是训练一个可以将可视化数据映射到语义表示的预测模型。</p>
+<ul>
+<li>前者开发了旨在从视觉数据准确预测人类知识的高级模型，如概率模型DAP和IAP</li>
+</ul>
+</li>
+<li><p>此后，只要知道新类别的语义描述，就可以识别它们。现有的ZSL研究分为两大主流:预测模型和语义表示设计。</p>
+</li>
+</ul>
+</li>
+<li><p>研究近况</p>
+<ul>
+<li>最近的研究利用嵌入方法作为低层特征和类标签之间的中间层。</li>
+<li>此外，一些新颖的著作研究了如何直接构造不可见类的分类器。</li>
+<li>后一种流侧重于如何有效地表示可以归纳为新类的人类知识，如人类可命名属性、词向量、文本描述以及类相似性。</li>
+</ul>
+</li>
+<li><p>方法不足</p>
+<ul>
+<li>上述方法存在一个共同的不足，即在语义信息不断增加、新类不断添加的情况下，训练的可视化示例无法扩展。由于新概念不断增长，这是不可避免的</li>
+</ul>
+</li>
+<li><p>本文的方法</p>
+<ul>
+<li>在这篇论文中，我们提议对不可见类的训练数据进行合成。我们的想法是受到人类想象力的启发。</li>
+<li>给出一个语义描述，人类可以将熟悉的视觉元素联系起来，然后想象一个近似的场景。</li>
+<li>值得注意的是，我们的方法不同于[1]中的图像合成，因为从语义上合成的图像很难覆盖视觉表象的巨大变化。取而代之的是，我们合成有区别的低级特征来训练ZSL的监督分类器。</li>
+<li>这种方法在ZSL任务和传统的监督分类器之间提供了一个直接的接口。</li>
+<li>此外，它还支持高级概念和低级可视特性之间的信息交互流。这样，训练集可以扩展到与语义表示一样大</li>
+</ul>
+</li>
+<li><p>面临的技术难题</p>
+<ul>
+<li><p>首先是视觉语义的差异。</p>
+<ul>
+<li>由于提取的数据源和方法的视觉特征和语义特征不同，这两个数据空间的数据分布可能存在显著差异。一个空间中的两个闭合点在另一个空间中可能很远。例如，[23]报道，同样的属性“HasTail”可能在“Zebra”和“Pig”的视觉外观上有很大的区别。然而，我们希望该模型能够有效捕获语义-视觉关联，而不是针对[23]中识别任务的“域转移问题”</li>
+</ul>
+</li>
+<li><p>第二个问题是方差衰减。</p>
+<ul>
+<li>由于视觉特征维数通常远大于语义表征维数，学习投影容易出现不平衡，即投影维数的方差变化严重。如图6所示，与真实数据相比，我们观察到线性投影合成的数据存在显著的方差衰减。大多数投影维数的方差都非常小，说明它们获得的信息很少。由于大量的冗余维度，这种预测会导致性能下降。因此，挑战在于如何使信息以平衡的投影扩散到合成数据的大部分维度。据我们所知，这个问题在之前的ZSL文献中没有被发现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>提出的方法</p>
+<ul>
+<li>提出了一种新的嵌入算法，即不可见视觉数据合成(UVDS)算法，该算法将语义特征投射到高维视觉特征空间中。</li>
+<li>对于第一个问题，我们引入了一个潜在的嵌入空间来调和视觉空间和语义空间之间的结构差异。我们使用双图(GR)来保持视觉和语义空间的局部结构。</li>
+<li>对于第二个问题，我们提出了一个新的扩散正则化(DR)，它明确地使信息扩散到合成数据的所有维度。具体地说，我们使用方差作为测量来强制信息在合成数据的维度上扩散。</li>
+<li>我们证明了这种格式等价于找到正交旋转变换。同时，我们还发现了一种优雅的正交旋转形式，它使用了有效解的2,1范数正则化。</li>
+<li>除了上述两个问题，合成的数据对ZSL任务也应该是有区别的。直接回归模型倾向于学习两个空间之间的主成分，这导致了对训练集分类的高度偏差。我们认为这是一个过拟合的问题，即训练后的模型在可见类的合成数据上可以获得较高的性能，但在合成的不可见数据上性能会显著下降。</li>
+<li>我们的经验表明，上述GR和DR可以互补地缓解过拟合问题:DR不损害局部结构的保留，而是通过正交旋转消除语义空间中的冗余相关性，从而有利于数据的合成。</li>
+</ul>
+</li>
+<li><p>贡献</p>
+<ul>
+<li>一个直观的框架，使我们能够从给定的语义属性合成不可见的数据。</li>
+<li>合成的数据可以直接提供给典型的分类器，并导致在四个基准数据集的最先进的性能。</li>
+<li>一种新的扩散正则化，可以显式地使信息扩散到合成数据的各个维度。我们通过优化正交旋转问题来实现信息扩散。我们提供了一种有效的优化策略来解决这一问题，同时数据结构的保存和数据重建</li>
+</ul>
+</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://blog.sciencenet.cn/blog-205121-1114916.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-205121-1114916.html</a></li>
+</ul>
+<h2 id="Prototypical-Networks-for-Few-shot-Learning"><a href="#Prototypical-Networks-for-Few-shot-Learning" class="headerlink" title="Prototypical Networks for Few-shot Learning"></a>Prototypical Networks for Few-shot Learning</h2><h3 id="Abstract-2"><a href="#Abstract-2" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li><p>目的</p>
+<ul>
+<li>针对小波分类问题，我们提出了原型网络，其中分类器必须推广到训练集中没有出现的新类，只给出每个新类的少量示例。</li>
+<li>原型网络学习一个度量空间，在这个空间中，可以通过计算到每个类的原型表示的距离来执行分类。与近年来的少镜头学习方法相比，它们反映了一种更简单的归纳偏差，在这种有限的数据体制下是有益的，并取得了良好的效果。</li>
+</ul>
+</li>
+<li><p>结果</p>
+<ul>
+<li>我们提供的分析表明，一些简单的设计决策相对于最近涉及复杂架构选择和元学习的方法可以产生实质性的改进。我们进一步将原型网络扩展到零距离学习，并在CU-Birds数据集上实现了最先进的结果</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>小样本分类</p>
+<ul>
+<li>few -shot classification[22,18,15]是一项任务，其中分类器必须进行调整，以适应在培训中没有看到的新类，只给出每个类的几个示例。一个简单的方法，例如在新数据上重新训练模型，将会严重地过度拟合。虽然这个问题相当困难，但已经证明人类有能力执行哪怕是一次分类，即只给出每个新类的一个示例，并且具有很高的准确率[18]。</li>
+</ul>
+</li>
+<li><p>近期两种方法</p>
+<ul>
+<li><p>1</p>
+<ul>
+<li>Vinyals et al.[32]提出了匹配网络，该网络使用一种注意力机制来预测未标记点(查询集)的类。<br>匹配网络可以解释为在嵌入空间中应用的加权最近邻分类器。</li>
+<li>值得注意的是，该模型利用了训练过程中被称为插曲的抽样小批量，其中每一集都被设计成通过子抽样类和数据点来模拟少数镜头任务。章节的使用使得训练问题更加忠实于测试环境，从而提高了泛化能力。</li>
+</ul>
+</li>
+<li><p>2</p>
+<ul>
+<li>Ravi和Larochelle[24]进一步提出了情景式训练的概念，并提出了一种元学习的方法来实现少镜头学习。他们的方法包括培训</li>
+<li>LSTM[11]生成对分类器的更新，给定一个集，这样就可以很好地推广到一个测试集。</li>
+<li>在这里，LSTM元学习者不是在多个情景中训练单个模型，而是学习为每个情景训练一个定制的模型。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本文的方法的思想</p>
+<ul>
+<li>我们通过解决过拟合的关键问题来解决小批量学习的问题。由于数据非常有限，我们假设分类器应该有一个非常简单的归纳偏差。我们的方法，原型网络，是基于这样一种思想，即存在一种嵌入，其中点围绕每个类的单一原型表示聚类。为了做到这一点，我们使用神经网络学习了输入到嵌入空间的非线性映射，并将类的原型作为其在嵌入空间中支持集的平均值。</li>
+<li>我们采用同样的方法来处理零距离学习;在这里，每个类都带有元数据，提供了类的高级描述，而不是少量标记的示例。因此，我们学习将元数据嵌入到共享空间中，作为每个类的原型。</li>
+<li>就像在少数情况下那样，通过为嵌入式查询点查找最近的类原型来执行分类</li>
+</ul>
+</li>
+<li><p>本文方法</p>
+<ul>
+<li>在这篇论文中，我们建立了原型网络的两种设置，少拍和零拍。</li>
+<li>我们在一次设置中绘制匹配网络的连接，并分析模型中使用的底层距离函数。特别地，我们将原型网络与聚类[4]联系起来，以证明在使用Bregman散度计算距离(如平方欧氏距离)时使用类均值作为原型是合理的。</li>
+<li>我们从经验上发现，距离的选择是至关重要的，因为欧几里得距离远远优于更常用的余弦相似度。在几个基准任务上，我们实现了最先进的性能。</li>
+<li>与最近的元学习算法相比，原型网络更简单、更有效，这使得它们成为一种吸引人的少目标和零目标学习方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://blog.csdn.net/u014767662/article/details/81670215" target="_blank" rel="noopener">https://blog.csdn.net/u014767662/article/details/81670215</a></li>
+</ul>
+<h2 id="A-multimodal-cortical-network-for"><a href="#A-multimodal-cortical-network-for" class="headerlink" title="A multimodal cortical network for"></a>A multimodal cortical network for</h2><p>the detection of changes in the<br>sensory environment</p>
+<h3 id="Abstract-3"><a href="#Abstract-3" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li><p>引入</p>
+<ul>
+<li>经历突然变化的感官刺激会吸引注意力，并优先进入我们的意识。</li>
+<li>我们使用事件相关的功能性磁共振成像(fMRI)来识别大脑中对视觉、听觉和触觉刺激变化做出反应的区域。单模反应区包括视觉、听觉和躯体感觉联合皮层。</li>
+<li>多模态反应区包括颞顶叶交界处、额下回、岛叶、左扣带回和辅助运动区等右脑网络。这些结果揭示了一个分布式的多模态网络，用于无意识地注意感官环境中的事件。</li>
+<li>该网络包含被认为是P300事件相关电位基础的区域，与半eglect综合征患者受损的皮层区域密切相关。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction-3"><a href="#Introduction-3" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>引入</p>
+<ul>
+<li>感知环境变化的能力对生存至关重要。有必要关注这些变化，以评估和修改在面临发展障碍、机会或威胁时的行为。因此，感官环境的变化，尤其是突然的变化，往往会不由自主地引起注意。经历变化的感官元素也优先地将自身插入意识中。例如，一个徒步旅行者可能不会注意到持续不断的鸟鸣声，除非他们突然停止，这时，徒步旅行者会意识到这两种声音</li>
+<li>当处理感官世界刺激的能力丧失时，就像患有忽视综合症的患者一样，对刺激的意识也丧失了1,2。理解大脑探测感觉环境变化的机制，将有助于我们更好地理解无意识注意和意识的机制。</li>
+<li>我们使用事件相关功能核磁共振成像来识别神经解剖结构的网络，这一网络是检测感觉环境变化的基础。视觉、听觉和触觉刺激被用来识别对多种感觉模式变化作出反应的区域。这些多模态区域特别有助于理解高阶认知过程，如构建一个完整的、多感官感知环境、将注意力引向该环境的显著特征以及选择这些特征以进入意识</li>
+</ul>
+</li>
+<li><p>实验</p>
+<ul>
+<li>受试者在接受视觉、听觉和触觉刺激的同时接受fMRI检查。为避免因反应选择、计划或工作记忆而激活，实验过程中不要求受试者做出任何形式的反应。相反，他们只是被动地观察刺激。</li>
+<li>关于刺激事件检测的研究经常涉及到</li>
+<li>“古怪”的实验方案，在这个方案中，研究对象面对一系列重复的、标准的刺激物，这些刺激物偶尔会被不同的刺激物打断</li>
+<li>“古怪”的刺激。我们的研究使用了这种方法的修正版本。在我们的方案中，每一种刺激方式都是连续呈现的，但在两种不同的状态(A和b)之间是独立交替的</li>
+<li>A到B或B到A(图1)</li>
+<li>我们使用这些抵消刺激状态之间的转换,而不是一个典型的古怪的刺激,以确保激活是由于一般质量的刺激和变化并不仅仅是由于不同的一些具体特征古怪的刺激与标准相比。每14秒就有3种感官模式中的一种发生转换，以随机顺序排列，以最小化预期和习惯的影响。</li>
+<li>为了识别激活，我们将转换视为刺激事件。这种方法使我们能够识别在单一感觉模式下对转换有反应的皮层区域，以及在多种感觉模式下对转换有反应的皮层网络</li>
+</ul>
+</li>
+</ul>
+<h2 id="Are-GANs-Created-Equal-A-Large-Scale-Study"><a href="#Are-GANs-Created-Equal-A-Large-Scale-Study" class="headerlink" title="Are GANs Created Equal? A Large-Scale Study"></a>Are GANs Created Equal? A Large-Scale Study</h2><h3 id="Abstract-4"><a href="#Abstract-4" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li><p>生成对抗网络</p>
+<ul>
+<li>生成对抗网络(GAN)是生成模型的一个强大子类。尽管有非常丰富的研究活动导致许多有趣的</li>
+<li>GAN算法，仍然很难评估哪种算法比其他算法表现得更好。我们对先进的模型和评价措施进行了中立的、多方面的大规模实证研究。</li>
+</ul>
+</li>
+<li><p>分析</p>
+<ul>
+<li>我们发现，大多数模型都可以达到类似的分数，只要有足够的超参数优化和随机重启。</li>
+<li>这表明改进可以来自更高的计算预算和比基本算法更改更多的调优。</li>
+</ul>
+</li>
+<li><p>困难</p>
+<ul>
+<li>为了克服当前度量标准的一些局限性，我们还提出了几个可以计算精确度和召回率的数据集。我们的实验结果表明，今后的GAN研究应该建立在更加系统和客观的评价程序的基础上。</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>最后，我们没有发现任何经过测试的算法始终优于[9]中引入的非饱和GAN的证据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction-4"><a href="#Introduction-4" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>本文贡献</p>
+<ul>
+<li><p>1</p>
+<ul>
+<li>我们提供了一个公平和全面的最先进的比较</li>
+<li>GANs和经验表明，如果有足够高的计算预算，它们几乎都可以达到FID的类似值</li>
+</ul>
+</li>
+<li><p>2</p>
+<ul>
+<li>We provide strong empirical evidence2 that to compare GANs</li>
+<li>it is necessary to report a summary of distribution of results, rather than the best result achieved, due</li>
+<li>to the randomness of the optimization process and model instability. (</li>
+</ul>
+</li>
+<li><p>3</p>
+<ul>
+<li>我们评估FID对模式下降的鲁棒性，使用不同的编码网络，并提供最佳的估计</li>
+<li>FID可以在经典数据集上实现。</li>
+</ul>
+</li>
+<li><p>4</p>
+<ul>
+<li>我们介绍了一系列难度越来越大的任务，可以对这些任务进行近似计算，如精度和召回等。</li>
+</ul>
+</li>
+<li><p>5</p>
+<ul>
+<li>开源实现</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="参考资料-2"><a href="#参考资料-2" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://www.sohu.com/a/207548482_465975" target="_blank" rel="noopener">http://www.sohu.com/a/207548482_465975</a></li>
+</ul>
+<h2 id="Few-shot-learning-of-neural-networks-from"><a href="#Few-shot-learning-of-neural-networks-from" class="headerlink" title="Few-shot learning of neural networks from"></a>Few-shot learning of neural networks from</h2><p>scratch by pseudo example optimization</p>
+<h3 id="Abstract-5"><a href="#Abstract-5" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li>本文提出了一种简单有效的训练神经网络的方法。我们的方法继承了知识精馏的思想，即将知识从深度或广泛的参考模型转移到浅层或狭窄的目标模型。</li>
+<li>该方法利用这一思想来模拟参考估计量的预测，这些估计量比我们想要训练的网络更能抵抗过拟合。与以往几乎所有需要大量标记训练数据的知识提取工作不同，该方法只需要少量训练数据。</li>
+<li>相反，我们引入了作为模型参数的一部分进行优化的伪训练示例。对多个基准数据集的实验结果表明，该方法优于目标模型的朴素训练和标准知识提取等所有基线。</li>
+</ul>
+<h3 id="Introduction-5"><a href="#Introduction-5" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>深度学习过拟合的挑战</li>
+<li><p>本文</p>
+<ul>
+<li>本文提出了一种利用少量有监督训练数据对神经网络进行训练的新方法。图1展示了我们所提出的模仿网络方法的基本思想。</li>
+<li>在原理上，我们特别选择能够提供局部平滑预测的GPs作为参考模型。与以往几乎所有使用大量监督训练样本进行知识精化的工作不同，我们提出的方法只需要少量的监督训练样本进行知识转移。为了增加训练示例，我们引入了一些诱导点[30]，这些点是伪训练示例，可以帮助模型训练变得易于处理或简单得多。在原始的诱导点方法中，采用了可伸缩GP推理的诱导点和模型参数</li>
+<li>然而，在我们提出的方法中，目标模型的参数被更新以减少训练损失，而伪训练实例被更新以增加训练损失。通过这样做，我们可以将伪训练示例移到当前目标模型没有得到良好训练的区域。我们还引入了保真度加权[6]，用于消除基于参考模型预测不确定性的有害伪训练实例</li>
+</ul>
+</li>
+<li><p>主要贡献</p>
+<ul>
+<li><ol>
+<li>提出了一种新的神经网络从无到有小概率训练的框架，这意味着既不需要额外的例子也不需要用大量的监督例子训练参考模型。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将诱导点的思想应用到神经网络的训练中，其优化方法与神经网络的模型参数几乎相同。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>XMind: ZEN - Trial Version</em></p>
 
-本文从采用零样本纠错输出码（ZSECOC）的角度来探索ZSAR(Zero-shot action recognition零样本动作识别)
-文中的提出
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/17/SSL/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -594,15 +983,10 @@
       
         
           
-          今天是11月25号，已经颓靡了很久的我终于搭建了一个可以访问的博客了，使用过阿里云的学生机，也使用过world press+老薛主机，两次都购买了一个月的使用期，配置过程中也遇到了很多问题，往往问题还没有解决的时候空间就要过期了。 昨天尝试了使用hexo+github的免费静态网页搭建，虽然也遇到了
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/25/Day-One/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>今天是11月25号，已经颓靡了很久的我终于搭建了一个可以访问的博客了，使用过阿里云的学生机，也使用过world press+老薛主机，两次都购买了一个月的使用期，配置过程中也遇到了很多问题，往往问题还没有解决的时候空间就要过期了。<br> 昨天尝试了使用hexo+github的免费静态网页搭建，虽然也遇到了坑，但是也花了一下午就搭建完成可以使用域名访问了，成就感真的，哇!终于有了自己的站点了。<br> 话说回来，一开始想用阿里云和老薛主机建站的目的，一方面是为了督促自己学习，一方面是为了通过服务器搭建网站帮助自己熟悉前后端的知识，可惜没有坚持下去。<br> 所以希望现在这个静态的免费站点能够支撑我记录自己的成长，不要荒废了我的时光和岁月！！！<br> 长久没有读书，写的文字也没有逻辑性，希望自己变成自己想要变成的样子！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;--more--&gt;</span><br><span class="line"> 加油~~</span><br></pre></td></tr></table></figure></p>
+<p>对话框么么？<br>~~~~</p>
+
+          
         
       
     </div>
