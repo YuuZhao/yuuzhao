@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/headicon-32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/headicon-16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/head-icon.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SLAM,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yuuzhao" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Matching-range-constrained real-time loop closure detection with CNNs features具有匹配范围约束的带重复特征的实时环路闭包检测  abstract  loop closure detection 闭环检测LCD DCNNs Some researchers  pre-trained CNNs model generatin">
+<meta name="keywords" content="SLAM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SLAM - PAPER - 1">
+<meta property="og:url" content="http://yoursite.com/2019/03/04/SLAM-PAPER/index.html">
+<meta property="og:site_name" content="yuuzhao">
+<meta property="og:description" content="Matching-range-constrained real-time loop closure detection with CNNs features具有匹配范围约束的带重复特征的实时环路闭包检测  abstract  loop closure detection 闭环检测LCD DCNNs Some researchers  pre-trained CNNs model generatin">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-04T07:45:00.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SLAM - PAPER - 1">
+<meta name="twitter:description" content="Matching-range-constrained real-time loop closure detection with CNNs features具有匹配范围约束的带重复特征的实时环路闭包检测  abstract  loop closure detection 闭环检测LCD DCNNs Some researchers  pre-trained CNNs model generatin">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/04/SLAM-PAPER/">
+
+
+
+
+
+  <title>SLAM - PAPER - 1 | yuuzhao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5469094107eb88f91cbb80b4256365fb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yuuzhao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yuyu Zhao's Personal Website</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/SLAM-PAPER/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuyu Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuuzhao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SLAM - PAPER - 1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-04T15:01:14+08:00">
+                2019-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SLAM/" itemprop="url" rel="index">
+                    <span itemprop="name">SLAM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/SLAM-PAPER/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/04/SLAM-PAPER/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Matching-range-constrained-real-time-loop-closure-detection-with-CNNs-features"><a href="#Matching-range-constrained-real-time-loop-closure-detection-with-CNNs-features" class="headerlink" title="Matching-range-constrained real-time loop closure detection with CNNs features"></a>Matching-range-constrained real-time loop closure detection with CNNs features</h2><p>具有匹配范围约束的带重复特征的实时环路闭包检测</p>
+<ul>
+<li><p>abstract</p>
+<ul>
+<li>loop closure detection 闭环检测LCD</li>
+<li>DCNNs</li>
+<li><p>Some researchers</p>
+<ul>
+<li>pre-trained CNNs model</li>
+<li>generating an image representation</li>
+<li>appropriate for visual LCD in SLAM</li>
+</ul>
+</li>
+<li><p>Differences and Challenges between Simple Computer Vision  &amp; Robotic Application</p>
+<ul>
+<li>adjacent images more resemblance</li>
+<li>real-time performance</li>
+</ul>
+</li>
+<li><p>in this paper</p>
+<ul>
+<li><p>making use of the feature generated by CNNs layers</p>
+<ul>
+<li>to implement LCD in real environment</li>
+</ul>
+</li>
+<li><p>the first problem</p>
+<ul>
+<li>provide a value to limit the matching range of images</li>
+</ul>
+</li>
+<li><p>better results</p>
+</li>
+<li><p>improve the real-time performance</p>
+<ul>
+<li>using an efficient feature compression method</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>background</p>
+<ul>
+<li><p>SLAM algorithm aims</p>
+<ul>
+<li>map an unknown environment</li>
+<li>while simultaneously localizing the robot</li>
+</ul>
+</li>
+<li><p>LCD</p>
+<ul>
+<li>determine whether a robot is back to previously visited location</li>
+<li>correcting the accumulate error is critical for building a consistent map</li>
+<li>One of the most essential techniques in SLAM</li>
+</ul>
+</li>
+<li><p>develop a LCD algorithm</p>
+<ul>
+<li><p>one class of popular and successful techniques</p>
+<ul>
+<li>based on  Matching the current view of the robot with</li>
+<li>Those Corresponding to previously visited locations in the robot map</li>
+<li><p>OTHER</p>
+<ul>
+<li>image matching problem</li>
+</ul>
+</li>
+<li><p>STEPS</p>
+<ul>
+<li>image description</li>
+<li>similarity measurement</li>
+</ul>
+</li>
+<li><p>The state-of-the-art Algorithms</p>
+<ul>
+<li><p>image description</p>
+<ul>
+<li><p>BoW ： bag-of-words model</p>
+<ul>
+<li><p>clusters the visual feature descriptors in images</p>
+<ul>
+<li><p>visual features (Success)</p>
+<ul>
+<li>SIFT</li>
+<li>Surf</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>builds the dictionary</p>
+</li>
+<li>find the corresponding words of image</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>similarity measurement</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Challenges still remain</p>
+<ul>
+<li>in dynamical and large-scale environment</li>
+<li><p>long period of time</p>
+<ul>
+<li>day</li>
+<li>week</li>
+<li>months</li>
+</ul>
+</li>
+<li><p>dramatic condition change</p>
+</li>
+<li>viewpoint change over time</li>
+<li><p>bad news</p>
+<ul>
+<li>the hand-craft methods can not deal with these situations very well</li>
+</ul>
+</li>
+<li><p>good news</p>
+<ul>
+<li>in recent ML and CV conference</li>
+<li>the features generated by convolutional neural networks outperform well in visual recognition classification and detection applications</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>advantage of CNNs</p>
+<ul>
+<li>it has been demonstrated to be versatile and transferable</li>
+<li>even though they were trained on a very specific target task</li>
+<li>they can be successfully used to solving different problems</li>
+<li>and may outperform traditional hand-craft features</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Two Challenges appear while we use these features generated by CNNs in pratical environment</p>
+<ul>
+<li><p>Firstly , the adjacent images in the data-set of LCD might have more resemblance  than the images that really form the loop closure</p>
+<ul>
+<li>#?为什么相邻图像比真实构成闭环检测的图像更相似？</li>
+<li>the algorithm tends to identify the adjacent images  as loop closure</li>
+</ul>
+</li>
+<li><p>Secondly , the feature matching is computationally intensive , because the dimension of features generated by CNNs may be very large .</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>LCD have to compare the current image to large amount of pre-captured images</p>
+<pre><code>        - 太大的计算量不利于实时性
+
+- in this paper
+
+    - two solution
+
+        - firstly
+
+            - provide matching range of candidate images
+
+                - #将匹配到一张图片，变成匹配到相似的图片范围里去
+
+        - secondly
+
+            - a efficient feature compression method
+
+                - #有效在于，通过压缩了CNN层得到的图像特征，这样处理的图像变小，处理速度快一点就能提高实时性， （临界性能减小）
+
+            - to reduce dimension of feature generated by CNNs
+</code></pre><h2 id="ViNS-Mono"><a href="#ViNS-Mono" class="headerlink" title="ViNS-Mono"></a>ViNS-Mono</h2><h2 id="遥感影像道路提取研究"><a href="#遥感影像道路提取研究" class="headerlink" title="遥感影像道路提取研究"></a>遥感影像道路提取研究</h2><h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><ul>
+<li>首先利用各种特征提取方法提取有用特征</li>
+<li>应用各种方法找出满足道路特征的道路</li>
+<li>最后对道路提取结果进行后期优化处理得到最终道路提取结果</li>
+</ul>
+<h3 id="目前的方法"><a href="#目前的方法" class="headerlink" title="目前的方法"></a>目前的方法</h3><ul>
+<li>特征提取</li>
+<li><p>道路提取</p>
+<ul>
+<li>1、同时包含道路拓扑结构信息和宽度信息的提取</li>
+<li>2、只提取出道路中心线的拓扑结构信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="Long-Range-Traversable-Region-Detection-Based-on-Superpixels"><a href="#Long-Range-Traversable-Region-Detection-Based-on-Superpixels" class="headerlink" title="Long Range Traversable Region Detection Based on Superpixels"></a>Long Range Traversable Region Detection Based on Superpixels</h2><p>Clustering for Mobile Robots<br>可达性</p>
+<h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><ul>
+<li>— Traversable region detection</li>
+<li><p>i传统方法缺点</p>
+<ul>
+<li>only  short range traversable regions can be detected</li>
+<li><p>原因</p>
+<ul>
+<li>the limited image resolution and baseline of stereo vision</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本文方法</p>
+<ul>
+<li>detect long range traversable regions without using any supervised or self-supervised learning process</li>
+<li>Superpixels clustering algorithm</li>
+<li>superpixels are  clustered using an improved spectral clustering algorithm to segment the image</li>
+<li><p>integrating short range traversable region detection : u-v-disparity</p>
+<ul>
+<li>then the traversable region can be extended to long range naturally</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>result</p>
+<ul>
+<li>works well in different outdoor environments</li>
+<li>detecting range can be improved greatly</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>可达性</p>
+<ul>
+<li>regions that do not contain geometric obstacles</li>
+</ul>
+</li>
+<li><p>采集信息</p>
+<ul>
+<li>ultrasonicsensor</li>
+<li><p>stereo vision</p>
+<ul>
+<li>measure the ranges to objects</li>
+<li>by calculating disparities between stereo images</li>
+</ul>
+</li>
+<li><p>laser scanners</p>
+</li>
+</ul>
+</li>
+<li><p>key</p>
+<ul>
+<li>After acquiring the disparities ,traversable regions or obstacles can be detected robustly and efficiently<br>(using a series of approaches based on u-v-disparties )</li>
+</ul>
+</li>
+<li><p>V-disparity</p>
+<ul>
+<li><p>Aim</p>
+<ul>
+<li>detect Obstacles</li>
+</ul>
+</li>
+<li><p>(u,v)</p>
+<ul>
+<li>坐标</li>
+</ul>
+</li>
+<li><p>ways</p>
+<ul>
+<li>by accumulating pixels with the same disparity value d in each row , a v-disparity image (d,v) was build</li>
+<li><p>perpendicular obstacles can be mapped to vertical lines</p>
+<ul>
+<li>pixel intensity  represents  the width of obstacles</li>
+</ul>
+</li>
+<li><p>the traversable region modelled as a succession of planes can be projected as slanted line segment</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SLAM/" rel="tag"># SLAM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/17/断章/" rel="next" title="さようならノート">
+                <i class="fa fa-chevron-left"></i> さようならノート
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Yuyu Zhao">
+            
+              <p class="site-author-name" itemprop="name">Yuyu Zhao</p>
+              <p class="site-description motion-element" itemprop="description">The hardest choices require the strongest wills.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Matching-range-constrained-real-time-loop-closure-detection-with-CNNs-features"><span class="nav-number">1.</span> <span class="nav-text">Matching-range-constrained real-time loop closure detection with CNNs features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViNS-Mono"><span class="nav-number">2.</span> <span class="nav-text">ViNS-Mono</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遥感影像道路提取研究"><span class="nav-number">3.</span> <span class="nav-text">遥感影像道路提取研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思路"><span class="nav-number">3.1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目前的方法"><span class="nav-number">3.2.</span> <span class="nav-text">目前的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Long-Range-Traversable-Region-Detection-Based-on-Superpixels"><span class="nav-number">4.</span> <span class="nav-text">Long Range Traversable Region Detection Based on Superpixels</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#abstract"><span class="nav-number">4.1.</span> <span class="nav-text">abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">4.2.</span> <span class="nav-text">Introduction</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuyu Zhao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://yuuzhao.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/03/04/SLAM-PAPER/';
+          this.page.identifier = '2019/03/04/SLAM-PAPER/';
+          this.page.title = 'SLAM - PAPER - 1';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://yuuzhao.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
