@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-04T07:45:00.863Z</updated>
+  <updated>2019-03-09T14:18:03.209Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSL Review -1</title>
+    <link href="http://yoursite.com/2019/03/09/SSL-REVIEW-1/"/>
+    <id>http://yoursite.com/2019/03/09/SSL-REVIEW-1/</id>
+    <published>2019-03-09T14:14:25.000Z</published>
+    <updated>2019-03-09T14:18:03.209Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="小样本综述：A-Survey-of-Zero-Shot-Learning-Settings-Methods-and-Applications"><a href="#小样本综述：A-Survey-of-Zero-Shot-Learning-Settings-Methods-and-Applications" class="headerlink" title="小样本综述：A Survey of Zero-Shot Learning: Settings, Methods,and Applications"></a>小样本综述：A Survey of Zero-Shot Learning: Settings, Methods,and Applications</h1><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><h3 id="Classify-zero-short-learning-according-to-the-data-utilized-in-model-optimization"><a href="#Classify-zero-short-learning-according-to-the-data-utilized-in-model-optimization" class="headerlink" title="Classify zero-short learning according to the data utilized in model optimization"></a>Classify zero-short learning according to the data utilized in model optimization</h3><h3 id="different-semantic-spaces-adopted-in-existing-zero-shot-learning-works"><a href="#different-semantic-spaces-adopted-in-existing-zero-shot-learning-works" class="headerlink" title="different semantic spaces adopted in existing zero-shot learning works"></a>different semantic spaces adopted in existing zero-shot learning works</h3><h3 id="categorize-existing-zero-shot-learning-methods"><a href="#categorize-existing-zero-shot-learning-methods" class="headerlink" title="categorize existing zero-shot learning methods"></a>categorize existing zero-shot learning methods</h3><h3 id="different-applications-of-zero-shot-learning"><a href="#different-applications-of-zero-shot-learning" class="headerlink" title="different applications of zero-shot learning"></a>different applications of zero-shot learning</h3><h3 id="future-research-directions-of-zero-shot-learning"><a href="#future-research-directions-of-zero-shot-learning" class="headerlink" title="future research directions of zero-shot learning"></a>future research directions of zero-shot learning</h3><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Resttrictions-for-Supervised-classification"><a href="#Resttrictions-for-Supervised-classification" class="headerlink" title="Resttrictions for Supervised classification"></a>Resttrictions for Supervised classification</h3><ul><li>1、sufficient labeled training instances are needed for each class </li><li>2、the learned classifier can only classify the instances belonging to classes covered by the training data </li><li>3、 it lacks the ability to deal with previously unseen classes </li><li>in practical applications , there may not be sufficient training instances for each class.<br>there could  also be situations in which the classes not covered by the training instances appear in the testing instances. </li></ul><h3 id="Method-to-deal-with-the-problems"><a href="#Method-to-deal-with-the-problems" class="headerlink" title="Method to deal with the problems"></a>Method to deal with the problems</h3><ul><li><p>few-shot learning methods<br>one-shot learing methods</p><ul><li>in these methods , while learning classifiers for the classes with few instances , knowledge contained in instances of other classes is utilized . </li></ul></li><li><p>open set recognition methods ,</p><ul><li>when learning classifier with the training data , the fact of unseen classes existing is taken in consideration </li><li>the learned classifier can  determine whether a testing instance belong to the unseen classes , but it cannot determine which specific unseen class the instance belongs to.</li></ul></li><li><p>the cumulative learning methods<br>the class-incremental learning methods </p><ul><li>proposed for problems in which labeled instances belonging to some previously unseen classes progressively appear after model learning .</li><li>the learned classifier can be adapted with these newly available labeled instances to be able to classify classes covered by them</li></ul></li><li><p>the open world recognition methods </p><ul><li>follow the process of “unseen classes detection , labeled instances of unseen classes acquisition, and model adaption “</li><li>adapt the classifier to be able to classify previously unseen classes with the acquired labeled instances belonging to them</li></ul></li><li><p>disadvantage of the methods under the above learning paradigms</p><ul><li>if the testing instances belong to unseen classes that have no available labeled instances during the model learning . </li><li>the learned classifier cannot determine the class labels of them. </li><li>However , in many practical applications , we need the classifier to have the ability to determine the class labels for the instances belonging to these classes .</li></ul></li><li><p>Some popular application scenarios </p><ul><li><p>The number of target classes is large.</p><ul><li>example: activity recognition</li></ul></li><li><p>Target classes are rare.</p><ul><li>example: fine-grained object classification , recognize flowers of different breeds. </li></ul></li><li><p>Target classes change over time.</p><ul><li>example: recognizing images of products belonging to a certain style and brand. </li></ul></li><li><p>In some particular tasks which is expensive to obtain labeled instances. </p></li></ul></li><li><p>For a  classifier </p><ul><li>it is important for it to have the ability to determine the class label of instances belonging to these classes . </li><li>to solve this problem ,zero-shot learning is proposed .</li></ul></li><li><p>Zero-shot learning</p><ul><li>aim to classify instances belong to the classes that have no labeled instances. </li></ul></li></ul><h3 id="Overview-of-Zero-Shot-learning"><a href="#Overview-of-Zero-Shot-learning" class="headerlink" title="Overview of Zero-Shot learning"></a>Overview of Zero-Shot learning</h3><p><em>XMind: ZEN - Trial Version</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;小样本综述：A-Survey-of-Zero-Shot-Learning-Settings-Methods-and-Applications&quot;&gt;&lt;a href=&quot;#小样本综述：A-Survey-of-Zero-Shot-Learning-Settings-Meth
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SLAM - PAPER - 1</title>
