@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-09T14:18:03.209Z</updated>
+  <updated>2019-03-10T02:11:02.870Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSL Review -2</title>
+    <link href="http://yoursite.com/2019/03/10/SSL-REVIEW-2-%20Overview%20of%20Zero-Shot%20Learning/"/>
+    <id>http://yoursite.com/2019/03/10/SSL-REVIEW-2- Overview of Zero-Shot Learning/</id>
+    <published>2019-03-10T02:10:25.000Z</published>
+    <updated>2019-03-10T02:11:02.870Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Overview-of-Zero-Shot-learning"><a href="#Overview-of-Zero-Shot-learning" class="headerlink" title="Overview of Zero-Shot learning"></a>Overview of Zero-Shot learning</h3><ul><li><p>the seen classes</p><ul><li>the classes covered by labeled training instances in the feauture space</li></ul></li><li><p>the unseen classes</p><ul><li>unlabeled testing instances in the feature space which belong to another set of classes</li></ul></li><li><p>the feature space </p><ul><li>a real number space</li><li>each instance is represented as a vector within it</li><li>each instance is usually assumed to belong to one class</li></ul></li><li><p>definition </p><ul><li><p><img src="http://latex.codecogs.com/gif.latex?S=\left\{c_{i}^{j}|i=1,……,N_{s}\right\}" alt=""><br>-<img src="http://latex.codecogs.com/gif.latex?\prod&space;n_{i}&plus;1" alt=""></p><p>$$S=\left { c_{i}^{j}|i=1,…,N_{s} \right }$$</p></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Overview-of-Zero-Shot-learning&quot;&gt;&lt;a href=&quot;#Overview-of-Zero-Shot-learning&quot; class=&quot;headerlink&quot; title=&quot;Overview of Zero-Shot learning&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="SSL" scheme="http://yoursite.com/tags/SSL/"/>
+    
+  </entry>
   
   <entry>
     <title>SSL Review -1</title>
