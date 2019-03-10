@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-10T07:00:28.538Z</updated>
+  <updated>2019-03-10T07:24:09.029Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/03/10/SSL-REVIEW-2-%20Overview%20of%20Zero-Shot%20Learning/"/>
     <id>http://yoursite.com/2019/03/10/SSL-REVIEW-2- Overview of Zero-Shot Learning/</id>
     <published>2019-03-10T02:10:25.000Z</published>
-    <updated>2019-03-10T07:00:28.538Z</updated>
+    <updated>2019-03-10T07:24:09.029Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Overview-of-Zero-Shot-learning"><a href="#Overview-of-Zero-Shot-learning" class="headerlink" title="Overview of Zero-Shot learning"></a>Overview of Zero-Shot learning</h1><ul><li><p>the seen classes</p><ul><li>the classes covered by labeled training instances in the feauture space</li></ul></li><li><p>the unseen classes</p><ul><li>unlabeled testing instances in the feature space which belong to another set of classes</li></ul></li><li><p>the feature space</p><ul><li>a real number space</li><li>each instance is represented as a vector within it</li><li>each instance is usually assumed to belong to one class</li></ul></li><li><p><strong>definition</strong></p><ul><li>the Set of Seen Classes:<pre><code>![](http://latex.codecogs.com/gif.latex?S=\left\{c_{i}^{s}|i=1,...,N_{s}\right\})</code></pre><ul><li>a seen classes:$c_{i}^{j}$</li></ul></li><li>the Set of Unseen Classes:<pre><code>![](http://latex.codecogs.com/gif.latex?U=\{c_{i}^{u}|i=1,...,N_{u}\})</code></pre></li><li>an unseen class:$C_{i}^{u}$</li><li>Denote that ：<br><img src="http://latex.codecogs.com/gif.latex?{S}\bigcap{U}=\varnothing" alt=""></li><li>The Feature Space:$X$, which is $D-dimensional$: $R^{D}$</li><li>The set of labeled training instances belonging to seen classes:<br>$$D^{tr}=\left { \left (x_{i}^{tr},y_{i}^{tr} \right )\in X\times S  \right }$$</li><li>for each labeled instance $(x_i^{tr},y_i^{tr})$,<ul><li>$x_i^{tr}$ ：the instance in the feature space ，</li><li>$y_i^{tr}$： the corresponding class label .</li></ul></li><li>The set of testing instances:<br>  $$X^{te}={x_i^{te}\in X}<em>{i=1}^{N</em>{te}}$$<br>  where each $x_i^{te}$ is a testing instance in the feature space.</li><li>The corresponding class labels for $X^{te}$:</li><li>$$Y^{te}={y_i^{te}\in U}<em>{i=1}^{N</em>{te}}$$<br>which are able to be predicted.<h2 id="Definition-1-1-Zero-Shot-Learning"><a href="#Definition-1-1-Zero-Shot-Learning" class="headerlink" title="Definition 1.1 (Zero-Shot Learning)"></a>Definition 1.1 (Zero-Shot Learning)</h2></li></ul></li><li>Given labeled training instances $D^{tr}$ belonging to the seen classes $S$,zero-shot learning aims to learn a classifier $f^u(\cdot):X\rightarrow U$  that can classify testing instances $X^{te}$(i.e. to predict $Y^{te}$) belonging to the unseen classes $U$.</li></ul><p>\begin{aligned}<br>f_Y(y) &amp; = f_X[h(y)]|h’(y)| \[2ex]<br>&amp; = f_X[h(y)]h’(y) \[2ex]<br>&amp; = \frac{1}{\theta}e^{-\frac{x}{\theta}}[\frac{dx}{dy}(-\frac{\theta}{ln(1-y)})] \[2ex]<br>&amp; = \frac{1}{\theta}e^{-\frac{-\frac{\theta}{ln(1-y)}}{\theta}}\frac{\theta}{1-y} \[2ex]<br>&amp; = \frac{1}{\theta}e^{ln(1-y)}\frac{\theta}{1-y} \[2ex]<br>&amp; = \frac{1-y}{\theta}\frac{\theta}{1-y} \[2ex]<br>&amp; = 1<br>\end{aligned}</p>]]></content>
     
