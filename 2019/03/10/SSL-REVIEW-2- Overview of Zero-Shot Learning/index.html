@@ -87,13 +87,12 @@
 <meta property="og:site_name" content="yuuzhao">
 <meta property="og:description" content="Overview of Zero-Shot learning the seen classes  the classes covered by labeled training instances in the feauture space   the unseen classes  unlabeled testing instances in the feature space which be">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?S=\left\{c_{i}^{j}|i=1,……,N_{s}\right\}">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?\prod&space;n_{i}+1">
-<meta property="og:updated_time" content="2019-03-10T02:11:02.870Z">
+<meta property="og:image" content="http://latex.codecogs.com/gif.latex?{S}\bigcap{U}=\varnothing">
+<meta property="og:updated_time" content="2019-03-10T03:39:11.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSL Review -2">
 <meta name="twitter:description" content="Overview of Zero-Shot learning the seen classes  the classes covered by labeled training instances in the feauture space   the unseen classes  unlabeled testing instances in the feature space which be">
-<meta name="twitter:image" content="http://latex.codecogs.com/gif.latex?S=\left\{c_{i}^{j}|i=1,……,N_{s}\right\}">
+<meta name="twitter:image" content="http://latex.codecogs.com/gif.latex?{S}\bigcap{U}=\varnothing">
 
 
 
@@ -348,7 +347,7 @@
       
 
       
-        <h3 id="Overview-of-Zero-Shot-learning"><a href="#Overview-of-Zero-Shot-learning" class="headerlink" title="Overview of Zero-Shot learning"></a>Overview of Zero-Shot learning</h3><ul>
+        <h1 id="Overview-of-Zero-Shot-learning"><a href="#Overview-of-Zero-Shot-learning" class="headerlink" title="Overview of Zero-Shot learning"></a>Overview of Zero-Shot learning</h1><ul>
 <li><p>the seen classes</p>
 <ul>
 <li>the classes covered by labeled training instances in the feauture space</li>
@@ -359,20 +358,37 @@
 <li>unlabeled testing instances in the feature space which belong to another set of classes</li>
 </ul>
 </li>
-<li><p>the feature space </p>
+<li><p>the feature space</p>
 <ul>
 <li>a real number space</li>
 <li>each instance is represented as a vector within it</li>
 <li>each instance is usually assumed to belong to one class</li>
 </ul>
 </li>
-<li><p>definition </p>
+<li><p><strong>definition</strong></p>
 <ul>
-<li><p><img src="http://latex.codecogs.com/gif.latex?S=\left\{c_{i}^{j}|i=1,……,N_{s}\right\}" alt=""><br>-<img src="http://latex.codecogs.com/gif.latex?\prod&space;n_{i}&plus;1" alt=""></p>
-<p>$$S=\left { c_{i}^{j}|i=1,…,N_{s} \right }$$</p>
-</li>
+<li>the Set of Seen Classes:<pre><code>![](http://latex.codecogs.com/gif.latex?S=\left\{c_{i}^{s}|i=1,...,N_{s}\right\})
+</code></pre><ul>
+<li>a seen classes:$c_{i}^{j}$</li>
 </ul>
 </li>
+<li>the Set of Unseen Classes:<pre><code>![](http://latex.codecogs.com/gif.latex?U=\{c_{i}^{u}|i=1,...,N_{u}\})
+</code></pre></li>
+<li>an unseen class:$C_{i}^{u}$</li>
+<li>Denote that ：<br><img src="http://latex.codecogs.com/gif.latex?{S}\bigcap{U}=\varnothing" alt=""></li>
+<li>The Feature Space:$X$, which is $D-dimensional$: $R^{D}$</li>
+<li>The set of labeled training instances belonging to seen classes:<br>$$D^{tr}=\left { \left (x_{i}^{tr},y_{i}^{tr} \right )\in X\times S  \right }$$</li>
+<li>for each labeled instance $(x_i^{tr},y_i^{tr})$,<ul>
+<li>$x_i^{tr}$ ：the instance in the feature space ，</li>
+<li>$y_i^{tr}$： the corresponding class label .</li>
+</ul>
+</li>
+<li>The set of testing instances:<br>  $$X^{te}={x_i^{te}\in X}<em>{i=1}^{N</em>{te}}$$<br>  where each $x_i^{te}$ is a testing instance in the feature space.</li>
+<li>The corresponding class labels for $X^{te}$:</li>
+<li>$$Y^{te}={y_i^{te}\in U}<em>{i=1}^{N</em>{te}}$$<br>which are able to be predicted.<h2 id="Definition-1-1-Zero-Shot-Learning"><a href="#Definition-1-1-Zero-Shot-Learning" class="headerlink" title="Definition 1.1 (Zero-Shot Learning)"></a>Definition 1.1 (Zero-Shot Learning)</h2></li>
+</ul>
+</li>
+<li>Given labeled training instances $D^{tr}$ belonging to the seen classes $S$,zero-shot learning aims to learn a classifier $f^u(\cdot):X\rightarrow U$  that can classify testing instances $X^{te}$(i.e. to predict $Y^{te}$) belonging to the unseen classes $U$.</li>
 </ul>
 
       
@@ -507,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -571,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview-of-Zero-Shot-learning"><span class="nav-number">1.</span> <span class="nav-text">Overview of Zero-Shot learning</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview-of-Zero-Shot-learning"><span class="nav-number">1.</span> <span class="nav-text">Overview of Zero-Shot learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-1-1-Zero-Shot-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Definition 1.1 (Zero-Shot Learning)</span></a></li></ol></li></ol></div>
             
 
           </div>
