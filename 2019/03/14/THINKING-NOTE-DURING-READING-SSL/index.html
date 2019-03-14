@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/14/THINKING-NOTE-DURING-READING-SSL/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/14/THINKING-NOTE-DURING-READING-SSL/t1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/14/THINKING-NOTE-DURING-READING-SSL/6.png">
-<meta property="og:updated_time" content="2019-03-14T12:29:22.898Z">
+<meta property="og:updated_time" content="2019-03-14T12:32:19.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thinking Note during Reading SSL">
 <meta name="twitter:description" content="SSL Survey监督学习分类中的限制 需要足够的标签 学习到的分类器只能区分， 被训练数据覆盖了的实例  为了解决上面的问题已经有了的一些方案 open set recognition methods  这种方法的分类器不能决定出，没有见过的实例属于什么类别。    这些方法的缺陷  如果测试实例， 是没有标签的，在模型学习中没有见过的类别， 学习到的分类器不能决定这些测试实例的类别标签。">
@@ -462,14 +462,14 @@
 </ul>
 </li>
 <li>CTIT 类别转换实例转换设置 （Class-Transductive Instance-Transductive (CTIT) Setting）：        <ul>
-<li>带标签的训练实例$D^tr$、已知类原型$T^s$ 、未知类原型$T^u$、不带标签的测试实例$X^{te}$ <h1 id="Domain-shift-域转换现象"><a href="#Domain-shift-域转换现象" class="headerlink" title="Domain shift 域转换现象"></a>Domain shift 域转换现象</h1></li>
-</ul>
-</li>
-<li>在ZSL学习中，在接受了测试实例之后， 使用训练实例的模型的性能将会下降的现象。 </li>
+<li>带标签的训练实例$D^tr$、已知类原型$T^s$ 、未知类原型$T^u$、不带标签的测试实例$X^{te}$ </li>
 </ul>
 </li>
 </ul>
-<h1 id="本文的贡献"><a href="#本文的贡献" class="headerlink" title="本文的贡献"></a>本文的贡献</h1><ul>
+</li>
+</ul>
+<h1 id="Domain-shift-域转换现象"><a href="#Domain-shift-域转换现象" class="headerlink" title="Domain shift 域转换现象"></a>Domain shift 域转换现象</h1><pre><code>- 在ZSL学习中，在接受了测试实例之后， 使用训练实例的模型的性能将会下降的现象。 
+</code></pre><h1 id="本文的贡献"><a href="#本文的贡献" class="headerlink" title="本文的贡献"></a>本文的贡献</h1><ul>
 <li>将ZSL方法分为三类：<ul>
 <li>One-Order transformation</li>
 <li>Two-Order transformation</li>
