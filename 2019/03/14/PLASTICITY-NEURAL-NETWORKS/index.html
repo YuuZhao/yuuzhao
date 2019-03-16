@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/headicon-32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/headicon-16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/head-icon.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="yuuzhao">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yuuzhao" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Plastic NNAbstractHow can we build  agents that keep learning from experience , after their initial training ?Take inspiration from the main mechanism of learning in biological brains : synaptic plast">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plasticity Neural Networks">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/index.html">
+<meta property="og:site_name" content="yuuzhao">
+<meta property="og:description" content="Plastic NNAbstractHow can we build  agents that keep learning from experience , after their initial training ?Take inspiration from the main mechanism of learning in biological brains : synaptic plast">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/1.png">
+<meta property="og:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/2.png">
+<meta property="og:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/3.png">
+<meta property="og:updated_time" content="2019-03-16T14:19:04.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Plasticity Neural Networks">
+<meta name="twitter:description" content="Plastic NNAbstractHow can we build  agents that keep learning from experience , after their initial training ?Take inspiration from the main mechanism of learning in biological brains : synaptic plast">
+<meta name="twitter:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/">
+
+
+
+
+
+  <title>Plasticity Neural Networks | yuuzhao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5469094107eb88f91cbb80b4256365fb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yuuzhao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yuyu Zhao's Personal Website</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuyu Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuuzhao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Plasticity Neural Networks</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-14T20:48:55+08:00">
+                2019-03-14
+              </time>
+            
+
+            
+
+            
+			
+          </span>
+		  
+			
+				<span class="post-visit-count">
+					&nbsp; | &nbsp; 
+					<!--眼睛图标-->
+					<i class="fa fa-eye"></i>&nbsp;
+					<span id="detail_cnt">1</span>
+				</span>
+			
+			
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/14/PLASTICITY-NEURAL-NETWORKS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/14/PLASTICITY-NEURAL-NETWORKS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Plastic-NN"><a href="#Plastic-NN" class="headerlink" title="Plastic NN"></a>Plastic NN</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><h3 id="How-can-we-build-agents-that-keep-learning-from-experience-after-their-initial-training"><a href="#How-can-we-build-agents-that-keep-learning-from-experience-after-their-initial-training" class="headerlink" title="How can we build  agents that keep learning from experience , after their initial training ?"></a>How can we build  agents that keep learning from experience , after their initial training ?</h3><h3 id="Take-inspiration-from-the-main-mechanism-of-learning-in-biological-brains-synaptic-plasticity"><a href="#Take-inspiration-from-the-main-mechanism-of-learning-in-biological-brains-synaptic-plasticity" class="headerlink" title="Take inspiration from the main mechanism of learning in biological brains : synaptic plasticity"></a>Take inspiration from the main mechanism of learning in biological brains : synaptic plasticity</h3><h3 id="Synaptic-plasticity-carefully-tuned-by-evolution-to-produce-efficient-lifelong-learning"><a href="#Synaptic-plasticity-carefully-tuned-by-evolution-to-produce-efficient-lifelong-learning" class="headerlink" title="Synaptic plasticity , carefully tuned by evolution to produce efficient lifelong learning ."></a>Synaptic plasticity , carefully tuned by evolution to produce efficient lifelong learning .</h3><h3 id="we-show-that-plasticity-just-like-connection-weights-can-be-optimized-by-gradient-descent-in-large-recurrent-networks-with-hebbian-plastic-connections"><a href="#we-show-that-plasticity-just-like-connection-weights-can-be-optimized-by-gradient-descent-in-large-recurrent-networks-with-hebbian-plastic-connections" class="headerlink" title="we show that plasticity , just like connection weights , can be optimized by gradient descent in large recurrent networks with hebbian plastic connections ."></a>we show that plasticity , just like connection weights , can be optimized by gradient descent in large recurrent networks with hebbian plastic connections .</h3><h3 id="First-recurrent-plastic-networks-with-more-than-two-million-parameters-can-be-trained-to-memorize-and-reconstruct-sets-of-novel-high-dimensional-natural-images-not-seen-during-training"><a href="#First-recurrent-plastic-networks-with-more-than-two-million-parameters-can-be-trained-to-memorize-and-reconstruct-sets-of-novel-high-dimensional-natural-images-not-seen-during-training" class="headerlink" title="First , recurrent plastic networks with more than two million parameters can be trained to memorize and reconstruct sets of novel , high-dimensional natural images not seen during training ."></a>First , recurrent plastic networks with more than two million parameters can be trained to memorize and reconstruct sets of novel , high-dimensional natural images not seen during training .</h3><ul>
+<li>超过两百万参数的递归塑性网络可以被训练来记忆和重建，在训练中没有出现过的创新高维的自然图像数据集。 </li>
+</ul>
+<h3 id="Crucially-traditional-non-plastic-recurrent-networks-fail-to-solve-this-task"><a href="#Crucially-traditional-non-plastic-recurrent-networks-fail-to-solve-this-task" class="headerlink" title="Crucially , traditional non-plastic recurrent networks fail to solve this task ."></a>Crucially , traditional non-plastic recurrent networks fail to solve this task .</h3><ul>
+<li>至关重要的是，传统非塑性循环神经网络无法解决这个问题</li>
+</ul>
+<h3 id="Furthermore-trained-plastic-networks-can-also-solve-generic-meta-learning-tasks-such-as-the-Omniglot-task，with-competitive-results-and-little-parameter-overhead"><a href="#Furthermore-trained-plastic-networks-can-also-solve-generic-meta-learning-tasks-such-as-the-Omniglot-task，with-competitive-results-and-little-parameter-overhead" class="headerlink" title="Furthermore , trained plastic networks can also solve generic meta-learning tasks such as the Omniglot task，with competitive results, and little parameter overhead."></a>Furthermore , trained plastic networks can also solve generic meta-learning tasks such as the Omniglot task，with competitive results, and little parameter overhead.</h3><ul>
+<li>更好的是， 训练塑性神经网络也可以解决像“Omniglot”任务， 有着复杂结果和无限参数的通用元学习任务</li>
+</ul>
+<h3 id="Finally-in-reinforcement-learning-settings-plastic-networks-outperform-a-non-plastic-equivalent-in-a-maze-exploration-task"><a href="#Finally-in-reinforcement-learning-settings-plastic-networks-outperform-a-non-plastic-equivalent-in-a-maze-exploration-task" class="headerlink" title="Finally , in reinforcement learning settings , plastic networks outperform a non-plastic equivalent in a maze exploration task."></a>Finally , in reinforcement learning settings , plastic networks outperform a non-plastic equivalent in a maze exploration task.</h3><ul>
+<li>最后， 在强化学习迷宫问题中，塑性网络比非塑性网络的表现效果更好</li>
+</ul>
+<h3 id="We-conclude-that-differentiable-plasticity-may-provide-a-powerful-novel-approach-to-the-learning-to-learn-problem"><a href="#We-conclude-that-differentiable-plasticity-may-provide-a-powerful-novel-approach-to-the-learning-to-learn-problem" class="headerlink" title="We conclude that differentiable plasticity may provide a powerful novel approach to the learning-to-learn problem ."></a>We conclude that differentiable plasticity may provide a powerful novel approach to the learning-to-learn problem .</h3><ul>
+<li>总结，可微塑性网络也许为“learn to learn ”问题提供了更有力创新的方法。</li>
+</ul>
+<h2 id="Introduction-the-problem-of-“learn-to-learn-“"><a href="#Introduction-the-problem-of-“learn-to-learn-“" class="headerlink" title="Introduction : the problem of “learn to learn “"></a>Introduction : the problem of “learn to learn “</h2><h3 id="Many-of-the-recent-spectacular-successes-in-machine-learning-involve-learning-one-complex-task-very-well-Through-extensive-training-over-thousands-or-millions-of-training-examples"><a href="#Many-of-the-recent-spectacular-successes-in-machine-learning-involve-learning-one-complex-task-very-well-Through-extensive-training-over-thousands-or-millions-of-training-examples" class="headerlink" title="Many of the recent spectacular successes in machine learning involve learning one complex task very well,Through extensive training over thousands or millions of training examples ."></a>Many of the recent spectacular successes in machine learning involve learning one complex task very well,Through extensive training over thousands or millions of training examples .</h3><h3 id="After-learning-is-complete-the-agent’s-knowledge-is-fixed-and-unchanging"><a href="#After-learning-is-complete-the-agent’s-knowledge-is-fixed-and-unchanging" class="headerlink" title="After learning is complete, the agent’s knowledge is fixed and unchanging ;"></a>After learning is complete, the agent’s knowledge is fixed and unchanging ;</h3><ul>
+<li>现在的学习方法中， 智能体的知识在学习完后是固定不变的</li>
+</ul>
+<h3 id="If-the-agent-is-to-be-applie-to-a-different-task-it-must-be-re-trained-again-requiring-a-very-large-number-of-new-training-examples"><a href="#If-the-agent-is-to-be-applie-to-a-different-task-it-must-be-re-trained-again-requiring-a-very-large-number-of-new-training-examples" class="headerlink" title="If the agent is to be applie to a different task , it must be re-trained , again requiring a very large number of new training examples."></a>If the agent is to be applie to a different task , it must be re-trained , again requiring a very large number of new training examples.</h3><ul>
+<li>如果智能体被要求执行一个不同的任务，它必须被重新训练， 在此需要大量的训练数据。</li>
+</ul>
+<h3 id="By-constrast-biological-agents-exhibit-a-remark-able-ability-to-learn-quickly-and-efficiently-from-ongoing-experience"><a href="#By-constrast-biological-agents-exhibit-a-remark-able-ability-to-learn-quickly-and-efficiently-from-ongoing-experience" class="headerlink" title="By constrast, biological agents exhibit a remark-able ability to learn quickly and efficiently from ongoing experience :"></a>By constrast, biological agents exhibit a remark-able ability to learn quickly and efficiently from ongoing experience :</h3><ul>
+<li>animals can learn to navigate and remember the location of food sources, discover and remember rewarding or aversive properties of novel objects and situations,etc.- often from a single exposere . </li>
+</ul>
+<h3 id="An-additional-beenefit-of-autonomous-learning-abilities"><a href="#An-additional-beenefit-of-autonomous-learning-abilities" class="headerlink" title="An additional beenefit of autonomous learning abilities"></a>An additional beenefit of autonomous learning abilities</h3><ul>
+<li>In many tasks (e.g. object recognition , maze navigation ,etc. )</li>
+<li><p>The bulk of fixed , unchanging structure in the task can be stored in the fixed knowledge of the agent,leaving only the changing , contingent parameters of the specific situation to be learned from experience. </p>
+<ul>
+<li>任务中大部分不改变的结构可以被存储智能体固定的知识中，只留下改变的，特殊场景的持续变化的参数，从经验中学习。</li>
+</ul>
+</li>
+</ul>
+<h3 id="As-a-result-learning-the-actual-specific-instance-of-the-task-at-hand-that-is-the-actual-latent-parameters-that-do-vary-across-multiple-instances-of-the-general-task-can-be-extremely-fast-requiring-few-or-even-a-single-experience-with-the-environment"><a href="#As-a-result-learning-the-actual-specific-instance-of-the-task-at-hand-that-is-the-actual-latent-parameters-that-do-vary-across-multiple-instances-of-the-general-task-can-be-extremely-fast-requiring-few-or-even-a-single-experience-with-the-environment" class="headerlink" title="As a result, learning the actual specific instance of the task at hand(that is , the actual latent parameters that do vary across multiple instances of the general task ) can be extremely fast requiring few or even a single experience with the environment."></a>As a result, learning the actual specific instance of the task at hand(that is , the actual latent parameters that do vary across multiple instances of the general task ) can be extremely fast requiring few or even a single experience with the environment.</h3><ul>
+<li>因此， 学习当前任务的特定实例，可能非常快， 甚至只需要当前环境中单独的经验</li>
+</ul>
+<h3 id="Several-meta-learning-methods-have-been-proposed-to-train-agents-to-learn-autonomously"><a href="#Several-meta-learning-methods-have-been-proposed-to-train-agents-to-learn-autonomously" class="headerlink" title="Several meta-learning methods have been proposed to train agents to learn autonomously ."></a>Several meta-learning methods have been proposed to train agents to learn autonomously .</h3><ul>
+<li>几种元学习方法以及被提出来训练智能体自动学习。</li>
+</ul>
+<h3 id="However-unlike-in-current-approaches-in-biological-brains-long-term-learning-is-thought-to-occur-primarily-through-synaptic-plasticity"><a href="#However-unlike-in-current-approaches-in-biological-brains-long-term-learning-is-thought-to-occur-primarily-through-synaptic-plasticity" class="headerlink" title="However , unlike in current approaches , in biological brains long-term learning is thought to occur primarily through synaptic plasticity ."></a>However , unlike in current approaches , in biological brains long-term learning is thought to occur primarily through synaptic plasticity .</h3><ul>
+<li>The strengthening and weakening of connections between neurons as a result of neural activity . </li>
+<li>as carefully tuned by evolution over millions of years to enable efficient learning during the lifetime of each individual. </li>
+<li><p>While multiple forms of synaptic plasticity exist, many of them build upon the general principle known as Hebb’srule</p>
+<ul>
+<li>多数突触可塑性都是建立在Hebb规则上的</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hebb’s-rule"><a href="#Hebb’s-rule" class="headerlink" title="Hebb’s rule"></a>Hebb’s rule</h3><ul>
+<li><p>if a neuron repeatedly takes part in making another neuron fire, the connection between them is strengthened </p>
+<ul>
+<li>(often roughly summarized as “neurons that fire together , wire together”)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Designing-neural-networks-with-plastic-connections-has-long-been-explored-with-evolutionary-algorithms-but-has-been-so-far-relatively-less-studied-in-deep-learning"><a href="#Designing-neural-networks-with-plastic-connections-has-long-been-explored-with-evolutionary-algorithms-but-has-been-so-far-relatively-less-studied-in-deep-learning" class="headerlink" title="Designing neural networks with plastic connections has long been explored with evolutionary algorithms , but has been so far relatively less studied in deep learning ."></a>Designing neural networks with plastic connections has long been explored with evolutionary algorithms , but has been so far relatively less studied in deep learning .</h3><h3 id="However-given-the-spectacular-results-of-gradient-descent-in-designing-traditional-plastic-neural-networks-for-complex-tasks-it-would-be-great-interest-to-expand-backpropagation-training-to-networks-with-plastic-connections-optimizing-through-gradient-descent-not-only-the-base-weights-but-also-the-amount-of-plasticity-in-each-connection"><a href="#However-given-the-spectacular-results-of-gradient-descent-in-designing-traditional-plastic-neural-networks-for-complex-tasks-it-would-be-great-interest-to-expand-backpropagation-training-to-networks-with-plastic-connections-optimizing-through-gradient-descent-not-only-the-base-weights-but-also-the-amount-of-plasticity-in-each-connection" class="headerlink" title="However, given the spectacular results of gradient descent in designing traditional -plastic neural networks for complex tasks, it would be great interest to expand backpropagation training to networks with plastic connections - optimizing through gradient descent not only the base weights , but also the amount of plasticity in each connection ."></a>However, given the spectacular results of gradient descent in designing traditional -plastic neural networks for complex tasks, it would be great interest to expand backpropagation training to networks with plastic connections - optimizing through gradient descent not only the base weights , but also the amount of plasticity in each connection .</h3><ul>
+<li>然而，为一些复杂任务设计传统塑性神经网络时，</li>
+</ul>
+<h3 id="We-previously-demonstrate-the-theoretical-feasibility-and-analytical-derivability-of-this-approach"><a href="#We-previously-demonstrate-the-theoretical-feasibility-and-analytical-derivability-of-this-approach" class="headerlink" title="We previously demonstrate the theoretical feasibility and analytical derivability of this approach ."></a>We previously demonstrate the theoretical feasibility and analytical derivability of this approach .</h3><h3 id="Here-we-show-that-this-approach-can-train-large-networks-for-non-trivial-tasks"><a href="#Here-we-show-that-this-approach-can-train-large-networks-for-non-trivial-tasks" class="headerlink" title="Here we show that this approach can train large networks for non-trivial tasks ."></a>Here we show that this approach can train large networks for non-trivial tasks .</h3><h3 id="To-demonstrate-our-approach-we-apply-it-to-three-different-types-of-tasks-complex-pattern-memorization-including-natural-images"><a href="#To-demonstrate-our-approach-we-apply-it-to-three-different-types-of-tasks-complex-pattern-memorization-including-natural-images" class="headerlink" title="To demonstrate our approach , we apply it to three different types of tasks  : complex pattern memorization (including natural images )."></a>To demonstrate our approach , we apply it to three different types of tasks  : complex pattern memorization (including natural images ).</h3><h3 id="one-shot-classification-on-the-Omniglot-dataset-and-reinforcement-learning-in-a-maze-exploration-problem"><a href="#one-shot-classification-on-the-Omniglot-dataset-and-reinforcement-learning-in-a-maze-exploration-problem" class="headerlink" title="one-shot classification (on the Omniglot dataset), and reinforcement learning (in a maze exploration problem ) ."></a>one-shot classification (on the Omniglot dataset), and reinforcement learning (in a maze exploration problem ) .</h3><h3 id="We-show-that-plastic-networks-provide-competitive-results-on-Omniglot-improve-performance-in-maze-exploration-and-outperform-advanced-non-plastic-recurrent-networks-LSTMs-by-orders-of-magnitude-in-complex-pattern-memorization"><a href="#We-show-that-plastic-networks-provide-competitive-results-on-Omniglot-improve-performance-in-maze-exploration-and-outperform-advanced-non-plastic-recurrent-networks-LSTMs-by-orders-of-magnitude-in-complex-pattern-memorization" class="headerlink" title="We show that plastic networks provide competitive results on Omniglot, improve performance in maze exploration and outperform advanced non-plastic recurrent networks (LSTMs) by orders of magnitude in complex pattern memorization ."></a>We show that plastic networks provide competitive results on Omniglot, improve performance in maze exploration and outperform advanced non-plastic recurrent networks (LSTMs) by orders of magnitude in complex pattern memorization .</h3><h3 id="This-result-is-interesting-not-only-for-opening-up-a-new-avenue-of-investigation-in-gradient-based-neural-network-training-but-also-for-showing-that-meta-properties-of-neural-structures-normally-atrributed-to-evolution-or-a-priori-design-are-in-fact-amenable-to-gradient-descent-hinting-at-a-whole-class-of-heretofore-unimagine-meta-learning-algorithms"><a href="#This-result-is-interesting-not-only-for-opening-up-a-new-avenue-of-investigation-in-gradient-based-neural-network-training-but-also-for-showing-that-meta-properties-of-neural-structures-normally-atrributed-to-evolution-or-a-priori-design-are-in-fact-amenable-to-gradient-descent-hinting-at-a-whole-class-of-heretofore-unimagine-meta-learning-algorithms" class="headerlink" title="This result is interesting not only for opening up a new avenue of investigation in gradient-based neural network training , but also for showing that meta -properties of neural structures normally atrributed to evolution or a priori design are in fact amenable to gradient descent , hinting at a whole class of heretofore unimagine meta-learning algorithms"></a>This result is interesting not only for opening up a new avenue of investigation in gradient-based neural network training , but also for showing that meta -properties of neural structures normally atrributed to evolution or a priori design are in fact amenable to gradient descent , hinting at a whole class of heretofore unimagine meta-learning algorithms</h3><h2 id="Differentiable-plasticity"><a href="#Differentiable-plasticity" class="headerlink" title="Differentiable plasticity"></a>Differentiable plasticity</h2><h3 id="To-train-plastic-networks-with-backpropagation-a-plasticity-rule-must-be-specified"><a href="#To-train-plastic-networks-with-backpropagation-a-plasticity-rule-must-be-specified" class="headerlink" title="To train plastic networks with backpropagation , a plasticity rule must be specified."></a>To train plastic networks with backpropagation , a plasticity rule must be specified.</h3><ul>
+<li><blockquote>
+<p>为了使用反向传播训练塑性网络，必须指定一个塑性规则</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Here-we-choose-a-flexible-formulation-that-keeps-separate-plastic-and-non-plastic-components-for-each-connection"><a href="#Here-we-choose-a-flexible-formulation-that-keeps-separate-plastic-and-non-plastic-components-for-each-connection" class="headerlink" title="Here we choose a flexible formulation that keeps separate plastic and non-plastic components for each connection"></a>Here we choose a flexible formulation that keeps separate plastic and non-plastic components for each connection</h3><ul>
+<li>在这里， 我们选择一个合适的公式，为每个连接保留塑性和非塑性组件。 </li>
+</ul>
+<h3 id="while-allowing-multiple-Hebbian-rules-to-be-easily-implemented-within-the-framework"><a href="#while-allowing-multiple-Hebbian-rules-to-be-easily-implemented-within-the-framework" class="headerlink" title="while allowing multiple Hebbian rules to be easily implemented within the framework."></a>while allowing multiple Hebbian rules to be easily implemented within the framework.</h3><ul>
+<li>同时允许框架内能够轻松实现多个Hebbian rules </li>
+</ul>
+<h3 id="A-connection-between-any-two-neurons-i-and-j-has-both-a-fixed-component-and-plastic-component"><a href="#A-connection-between-any-two-neurons-i-and-j-has-both-a-fixed-component-and-plastic-component" class="headerlink" title="A connection between any two neurons $i$ and $j$ has both a fixed component and plastic component."></a>A connection between any two neurons $i$ and $j$ has both a fixed component and plastic component.</h3><ul>
+<li>任何两个神经元i和j之间，都有一个固定不变的组件 和一个 塑性组件。 </li>
+</ul>
+<h3 id="The-fixed-part-is-just-a-traditional-connection-weight-w-i-j"><a href="#The-fixed-part-is-just-a-traditional-connection-weight-w-i-j" class="headerlink" title="The fixed part is just a traditional connection weight $w_{i,j}$,"></a>The fixed part is just a traditional connection weight $w_{i,j}$,</h3><ul>
+<li>固定组件就是一个传统的连接权重 $w_{i,j}$, </li>
+</ul>
+<h3 id="The-plastic-part-is-stored-in-a-Hebbian-trace-Hebb-i-j-Which-varies-during-a-lifetime-according-to-ongoing-inputs-and-outputs-note-that-we-use-“lifetime”-and-“episode”-interchangeably"><a href="#The-plastic-part-is-stored-in-a-Hebbian-trace-Hebb-i-j-Which-varies-during-a-lifetime-according-to-ongoing-inputs-and-outputs-note-that-we-use-“lifetime”-and-“episode”-interchangeably" class="headerlink" title="The plastic part is stored in a Hebbian trace $Hebb_{i,j}$, Which varies during a lifetime according to ongoing inputs and outputs (note that we use “lifetime” and “episode” interchangeably.)"></a>The plastic part is stored in a <strong><em>Hebbian trace</em></strong> $Hebb_{i,j}$, Which varies during a lifetime according to ongoing inputs and outputs (note that we use “lifetime” and “episode” interchangeably.)</h3><ul>
+<li>塑性组件被存储在一个 Hebbian  跟踪 $Hebb_{i,j}$里面， 在一个生命周期里面随着输入和输出变化。</li>
+</ul>
+<h3 id="In-the-simplest-case-studied-here-the-Hebbian-trace-is-simply-a-running-average-of-the-product-of-pre-and-post-synaptic-activity"><a href="#In-the-simplest-case-studied-here-the-Hebbian-trace-is-simply-a-running-average-of-the-product-of-pre-and-post-synaptic-activity" class="headerlink" title="In the simplest case studied here, the Hebbian trace is simply a running average of the product of pre- and post-synaptic activity ."></a>In the simplest case studied here, the Hebbian trace is simply a running average of the product of pre- and post-synaptic activity .</h3><h3 id="The-relative-importance-of-plastic-and-fixed-components-in-the-connection-is-structurally-determined-by-the-plasticity-coefficient-aerfa-i-j-Which-multiplies-the-Hebbian-trace-to-form-the-full-plastic-component-of-the-connection"><a href="#The-relative-importance-of-plastic-and-fixed-components-in-the-connection-is-structurally-determined-by-the-plasticity-coefficient-aerfa-i-j-Which-multiplies-the-Hebbian-trace-to-form-the-full-plastic-component-of-the-connection" class="headerlink" title="The relative importance of plastic and fixed components in the connection is structurally determined by the plasticity coefficient $\aerfa_{i,j}$, Which multiplies the Hebbian trace to form the full plastic component of the connection."></a>The relative importance of plastic and fixed components in the connection is structurally determined by the plasticity coefficient $\aerfa_{i,j}$, Which multiplies the Hebbian trace to form the full plastic component of the connection.</h3><ul>
+<li>在连接中，塑性组件和固定组件的相对重要性是通过塑性系数结构化决定的， 塑性系数 是 Hebbian trace 相乘来形成连接的全局塑性组件。 </li>
+</ul>
+<h3 id="Thus-at-any-time-the-total-effective-weight-of-the-connection-between-neurons-i-and-j-is-the-sum-of-the-baseline-fixed-weight-w-i-j-，plus-the-hebbian-trace"><a href="#Thus-at-any-time-the-total-effective-weight-of-the-connection-between-neurons-i-and-j-is-the-sum-of-the-baseline-fixed-weight-w-i-j-，plus-the-hebbian-trace" class="headerlink" title="Thus, at any time , the total , effective weight of the connection between neurons i and j is the sum of the baseline(fixed) weight $w_{i,j}$，plus the hebbian trace"></a>Thus, at any time , the total , effective weight of the connection between neurons i and j is the sum of the baseline(fixed) weight $w_{i,j}$，plus the hebbian trace</h3><ul>
+<li>因此， 在任何时候， 神经元i和j之间的所有有效权重， 是固定的权重$w_{i,j}$， 加上Hebbian trace$Hebb_{i,j}$ 乘以塑性系数。</li>
+</ul>
+<h3 id="The"><a href="#The" class="headerlink" title="The"></a>The</h3><ul>
+<li>神经元j的输出 $x_j(t)$ 如下</li>
+<li><img src="/PLASTICITY-NEURAL-NETWORKS/1.png" alt=""></li>
+<li>$\sigmma$ 是一个非线性函数 </li>
+<li>input 代表所有给神经元j提供输入的神经元。 </li>
+<li><p>通过这种方式， 取决于权值$w_{i,j}$ 和$\alpha_{i,j}$， </p>
+<ul>
+<li>如果$\alpha=0$ ,一个连接可以是完全fixed的</li>
+<li>如果$w=0$ , 一个连接可以是没有fixed组件的完全plastic的。</li>
+<li>或者一个连接有固定组件和塑性组件。 </li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Hebbian-trace-Hebb-i-j"><a href="#The-Hebbian-trace-Hebb-i-j" class="headerlink" title="The Hebbian trace $Hebb_{i,j}$"></a>The Hebbian trace $Hebb_{i,j}$</h3><ul>
+<li>在每个生命周期的开始初始化为0 </li>
+<li>参数$w_{i,j}$和$\alpha_{i,j}$ ，在整个生命周期被保存，这个神经网络的结构化参数，通过梯度下降法优化， 在一个生命周期最大化期待的性能</li>
+<li><p>$\elta$ ， 学习率， 也是神经网络的一个优化参数， 在本文中，所有的连接共享相同的$\elta$值。 它是整个网络的学习标量参数。</p>
+<ul>
+<li>elta,作为权重衰减项出现， 保证了Hebbian迹的失控正反馈。</li>
+</ul>
+</li>
+<li><p>然而因为，这个权重衰减， hebb迹在输入缺少的情况下衰减到0</p>
+</li>
+<li>不幸的是， 其他更复杂的Hebb规则可以在刺激缺少的情况下，无限保持权重值的稳定性。</li>
+<li>一个更有名的例子就是Oja’s 规则 ， 因此可以用Oja规则替换上面公式中的第二个公式</li>
+<li><img src="/PLASTICITY-NEURAL-NETWORKS/2.png" alt=""></li>
+<li>这种方法可以训练神经网络形成持续任意时间的记忆。 </li>
+<li>为了描述我们研究的灵活性， 我们证明了两个规则， 在下面报告的实验中</li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h2 id="Experiments-and-Results"><a href="#Experiments-and-Results" class="headerlink" title="Experiments and Results"></a>Experiments and Results</h2><h3 id="这个实验被设计用来证明可微塑性实际上在一个元学习框架内起作用，-并且展示它提供了决定性的优势。"><a href="#这个实验被设计用来证明可微塑性实际上在一个元学习框架内起作用，-并且展示它提供了决定性的优势。" class="headerlink" title="这个实验被设计用来证明可微塑性实际上在一个元学习框架内起作用， 并且展示它提供了决定性的优势。"></a>这个实验被设计用来证明可微塑性实际上在一个元学习框架内起作用， 并且展示它提供了决定性的优势。</h3><h3 id="模式记忆-：-二元模式"><a href="#模式记忆-：-二元模式" class="headerlink" title="模式记忆 ： 二元模式"></a>模式记忆 ： 二元模式</h3><ul>
+<li>为了描述这些不同的塑性方法，我们首先把它应用到任意高维模式的快速记忆集合中去， 并且当这些集合暴露出了局部和降维的版本，就重建这些模式。</li>
+<li>可以执行这个任务的神经网络被称为 内容可寻址记忆， 或者 自动联想神经网络</li>
+<li>这个任务是一个有用的测试， 因为使用Hebbian plastic 连接手动设计的循环神经网络可以成功解决这个二元模式</li>
+<li>因此，如果可微的塑性网络有任何帮助， 它也应该嫩自动解决这个问题，这个问题就是， 自动设计可以执行已经存在的手动设计神经网络可以完成的任务 的神经网络</li>
+<li>图1描绘了这个任务的一个生命周期， 该网络连续显示一组5个二维模式。 </li>
+<li><img src="/PLASTICITY-NEURAL-NETWORKS/3.png" alt=""></li>
+<li>每个二元模式由1000个元素组成， 每一个不是1就是-1， 分别用红色和蓝色表示。 </li>
+<li><p>每个模式展示了10个周期步骤</p>
+<ul>
+<li>在演示文稿之间有输入为0的三个周期步骤</li>
+<li>所有的模式序列通过3次随机顺序展示。</li>
+<li>然后，通过将所述模式的一半比特设置为零，随机选择其中的一个模式并对其进行降级。</li>
+<li>然后将这种退化的模式作为网络的输入</li>
+</ul>
+</li>
+<li><p>网络的任务是输出重建的正确完整模式，在它的记忆中绘制完成损失的降维模式（底部的浅蓝色和红色）</p>
+</li>
+<li>图1下面的架构是完全循环身价还哦，每一个模式元素都有一个神经元， 加上一个固定的输出神经元（偏差），对于所有的1001个神经元， 输入模式是通过固定每个神经元的只，到模式中对应的元素的值来提供的， 如果这个值不是0 的话； </li>
+<li>对于降维模式中的0值输入，对应的神经元没收到模式输入， 并且从侧面连接中唯一地得到他们的输入。 他们必须重建正确的期待的输出结果。 </li>
+<li>输出直接从活跃神经元中读取。 </li>
+<li>神经网络额性能仅仅在最后一步中被评价</li>
+<li>通过计算累计squared误差， 最终的神经网络输出和正确的模式 </li>
+<li>然后根据反向传播计算了 $w$和$\alpha$ 的梯度误差</li>
+<li>然后这些系数通过一个Adam solver 使用学习率 0.001解决了。 </li>
+<li>在这个实验中， 我们使用了简单衰减的Hebbian 公式来更新hebbian迹</li>
+<li>注意，这个神经网络有两个训练参数 （$w$、$\alpha$），加起来是 1001<em>1001</em>2个训练参数。 </li>
+<li>在大概200个周期的时候，误差率缩减到不再变化</li>
+</ul>
+<p><em>XMind: ZEN - Trial Version</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/14/THINKING-NOTE-DURING-READING-SSL/" rel="next" title="Thinking Note during Reading SSL">
+                <i class="fa fa-chevron-left"></i> Thinking Note during Reading SSL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Yuyu Zhao">
+            
+              <p class="site-author-name" itemprop="name">Yuyu Zhao</p>
+              <p class="site-description motion-element" itemprop="description">The hardest choices require the strongest wills.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Plastic-NN"><span class="nav-number">1.</span> <span class="nav-text">Plastic NN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-can-we-build-agents-that-keep-learning-from-experience-after-their-initial-training"><span class="nav-number">1.1.1.</span> <span class="nav-text">How can we build  agents that keep learning from experience , after their initial training ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take-inspiration-from-the-main-mechanism-of-learning-in-biological-brains-synaptic-plasticity"><span class="nav-number">1.1.2.</span> <span class="nav-text">Take inspiration from the main mechanism of learning in biological brains : synaptic plasticity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Synaptic-plasticity-carefully-tuned-by-evolution-to-produce-efficient-lifelong-learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Synaptic plasticity , carefully tuned by evolution to produce efficient lifelong learning .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#we-show-that-plasticity-just-like-connection-weights-can-be-optimized-by-gradient-descent-in-large-recurrent-networks-with-hebbian-plastic-connections"><span class="nav-number">1.1.4.</span> <span class="nav-text">we show that plasticity , just like connection weights , can be optimized by gradient descent in large recurrent networks with hebbian plastic connections .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-recurrent-plastic-networks-with-more-than-two-million-parameters-can-be-trained-to-memorize-and-reconstruct-sets-of-novel-high-dimensional-natural-images-not-seen-during-training"><span class="nav-number">1.1.5.</span> <span class="nav-text">First , recurrent plastic networks with more than two million parameters can be trained to memorize and reconstruct sets of novel , high-dimensional natural images not seen during training .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crucially-traditional-non-plastic-recurrent-networks-fail-to-solve-this-task"><span class="nav-number">1.1.6.</span> <span class="nav-text">Crucially , traditional non-plastic recurrent networks fail to solve this task .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Furthermore-trained-plastic-networks-can-also-solve-generic-meta-learning-tasks-such-as-the-Omniglot-task，with-competitive-results-and-little-parameter-overhead"><span class="nav-number">1.1.7.</span> <span class="nav-text">Furthermore , trained plastic networks can also solve generic meta-learning tasks such as the Omniglot task，with competitive results, and little parameter overhead.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finally-in-reinforcement-learning-settings-plastic-networks-outperform-a-non-plastic-equivalent-in-a-maze-exploration-task"><span class="nav-number">1.1.8.</span> <span class="nav-text">Finally , in reinforcement learning settings , plastic networks outperform a non-plastic equivalent in a maze exploration task.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#We-conclude-that-differentiable-plasticity-may-provide-a-powerful-novel-approach-to-the-learning-to-learn-problem"><span class="nav-number">1.1.9.</span> <span class="nav-text">We conclude that differentiable plasticity may provide a powerful novel approach to the learning-to-learn problem .</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-the-problem-of-“learn-to-learn-“"><span class="nav-number">1.2.</span> <span class="nav-text">Introduction : the problem of “learn to learn “</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Many-of-the-recent-spectacular-successes-in-machine-learning-involve-learning-one-complex-task-very-well-Through-extensive-training-over-thousands-or-millions-of-training-examples"><span class="nav-number">1.2.1.</span> <span class="nav-text">Many of the recent spectacular successes in machine learning involve learning one complex task very well,Through extensive training over thousands or millions of training examples .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-learning-is-complete-the-agent’s-knowledge-is-fixed-and-unchanging"><span class="nav-number">1.2.2.</span> <span class="nav-text">After learning is complete, the agent’s knowledge is fixed and unchanging ;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#If-the-agent-is-to-be-applie-to-a-different-task-it-must-be-re-trained-again-requiring-a-very-large-number-of-new-training-examples"><span class="nav-number">1.2.3.</span> <span class="nav-text">If the agent is to be applie to a different task , it must be re-trained , again requiring a very large number of new training examples.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#By-constrast-biological-agents-exhibit-a-remark-able-ability-to-learn-quickly-and-efficiently-from-ongoing-experience"><span class="nav-number">1.2.4.</span> <span class="nav-text">By constrast, biological agents exhibit a remark-able ability to learn quickly and efficiently from ongoing experience :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#An-additional-beenefit-of-autonomous-learning-abilities"><span class="nav-number">1.2.5.</span> <span class="nav-text">An additional beenefit of autonomous learning abilities</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#As-a-result-learning-the-actual-specific-instance-of-the-task-at-hand-that-is-the-actual-latent-parameters-that-do-vary-across-multiple-instances-of-the-general-task-can-be-extremely-fast-requiring-few-or-even-a-single-experience-with-the-environment"><span class="nav-number">1.2.6.</span> <span class="nav-text">As a result, learning the actual specific instance of the task at hand(that is , the actual latent parameters that do vary across multiple instances of the general task ) can be extremely fast requiring few or even a single experience with the environment.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Several-meta-learning-methods-have-been-proposed-to-train-agents-to-learn-autonomously"><span class="nav-number">1.2.7.</span> <span class="nav-text">Several meta-learning methods have been proposed to train agents to learn autonomously .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#However-unlike-in-current-approaches-in-biological-brains-long-term-learning-is-thought-to-occur-primarily-through-synaptic-plasticity"><span class="nav-number">1.2.8.</span> <span class="nav-text">However , unlike in current approaches , in biological brains long-term learning is thought to occur primarily through synaptic plasticity .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hebb’s-rule"><span class="nav-number">1.2.9.</span> <span class="nav-text">Hebb’s rule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Designing-neural-networks-with-plastic-connections-has-long-been-explored-with-evolutionary-algorithms-but-has-been-so-far-relatively-less-studied-in-deep-learning"><span class="nav-number">1.2.10.</span> <span class="nav-text">Designing neural networks with plastic connections has long been explored with evolutionary algorithms , but has been so far relatively less studied in deep learning .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#However-given-the-spectacular-results-of-gradient-descent-in-designing-traditional-plastic-neural-networks-for-complex-tasks-it-would-be-great-interest-to-expand-backpropagation-training-to-networks-with-plastic-connections-optimizing-through-gradient-descent-not-only-the-base-weights-but-also-the-amount-of-plasticity-in-each-connection"><span class="nav-number">1.2.11.</span> <span class="nav-text">However, given the spectacular results of gradient descent in designing traditional -plastic neural networks for complex tasks, it would be great interest to expand backpropagation training to networks with plastic connections - optimizing through gradient descent not only the base weights , but also the amount of plasticity in each connection .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#We-previously-demonstrate-the-theoretical-feasibility-and-analytical-derivability-of-this-approach"><span class="nav-number">1.2.12.</span> <span class="nav-text">We previously demonstrate the theoretical feasibility and analytical derivability of this approach .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Here-we-show-that-this-approach-can-train-large-networks-for-non-trivial-tasks"><span class="nav-number">1.2.13.</span> <span class="nav-text">Here we show that this approach can train large networks for non-trivial tasks .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#To-demonstrate-our-approach-we-apply-it-to-three-different-types-of-tasks-complex-pattern-memorization-including-natural-images"><span class="nav-number">1.2.14.</span> <span class="nav-text">To demonstrate our approach , we apply it to three different types of tasks  : complex pattern memorization (including natural images ).</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#one-shot-classification-on-the-Omniglot-dataset-and-reinforcement-learning-in-a-maze-exploration-problem"><span class="nav-number">1.2.15.</span> <span class="nav-text">one-shot classification (on the Omniglot dataset), and reinforcement learning (in a maze exploration problem ) .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#We-show-that-plastic-networks-provide-competitive-results-on-Omniglot-improve-performance-in-maze-exploration-and-outperform-advanced-non-plastic-recurrent-networks-LSTMs-by-orders-of-magnitude-in-complex-pattern-memorization"><span class="nav-number">1.2.16.</span> <span class="nav-text">We show that plastic networks provide competitive results on Omniglot, improve performance in maze exploration and outperform advanced non-plastic recurrent networks (LSTMs) by orders of magnitude in complex pattern memorization .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-result-is-interesting-not-only-for-opening-up-a-new-avenue-of-investigation-in-gradient-based-neural-network-training-but-also-for-showing-that-meta-properties-of-neural-structures-normally-atrributed-to-evolution-or-a-priori-design-are-in-fact-amenable-to-gradient-descent-hinting-at-a-whole-class-of-heretofore-unimagine-meta-learning-algorithms"><span class="nav-number">1.2.17.</span> <span class="nav-text">This result is interesting not only for opening up a new avenue of investigation in gradient-based neural network training , but also for showing that meta -properties of neural structures normally atrributed to evolution or a priori design are in fact amenable to gradient descent , hinting at a whole class of heretofore unimagine meta-learning algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Differentiable-plasticity"><span class="nav-number">1.3.</span> <span class="nav-text">Differentiable plasticity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#To-train-plastic-networks-with-backpropagation-a-plasticity-rule-must-be-specified"><span class="nav-number">1.3.1.</span> <span class="nav-text">To train plastic networks with backpropagation , a plasticity rule must be specified.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Here-we-choose-a-flexible-formulation-that-keeps-separate-plastic-and-non-plastic-components-for-each-connection"><span class="nav-number">1.3.2.</span> <span class="nav-text">Here we choose a flexible formulation that keeps separate plastic and non-plastic components for each connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-allowing-multiple-Hebbian-rules-to-be-easily-implemented-within-the-framework"><span class="nav-number">1.3.3.</span> <span class="nav-text">while allowing multiple Hebbian rules to be easily implemented within the framework.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-connection-between-any-two-neurons-i-and-j-has-both-a-fixed-component-and-plastic-component"><span class="nav-number">1.3.4.</span> <span class="nav-text">A connection between any two neurons $i$ and $j$ has both a fixed component and plastic component.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-fixed-part-is-just-a-traditional-connection-weight-w-i-j"><span class="nav-number">1.3.5.</span> <span class="nav-text">The fixed part is just a traditional connection weight $w_{i,j}$,</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-plastic-part-is-stored-in-a-Hebbian-trace-Hebb-i-j-Which-varies-during-a-lifetime-according-to-ongoing-inputs-and-outputs-note-that-we-use-“lifetime”-and-“episode”-interchangeably"><span class="nav-number">1.3.6.</span> <span class="nav-text">The plastic part is stored in a Hebbian trace $Hebb_{i,j}$, Which varies during a lifetime according to ongoing inputs and outputs (note that we use “lifetime” and “episode” interchangeably.)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-the-simplest-case-studied-here-the-Hebbian-trace-is-simply-a-running-average-of-the-product-of-pre-and-post-synaptic-activity"><span class="nav-number">1.3.7.</span> <span class="nav-text">In the simplest case studied here, the Hebbian trace is simply a running average of the product of pre- and post-synaptic activity .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-relative-importance-of-plastic-and-fixed-components-in-the-connection-is-structurally-determined-by-the-plasticity-coefficient-aerfa-i-j-Which-multiplies-the-Hebbian-trace-to-form-the-full-plastic-component-of-the-connection"><span class="nav-number">1.3.8.</span> <span class="nav-text">The relative importance of plastic and fixed components in the connection is structurally determined by the plasticity coefficient $\aerfa_{i,j}$, Which multiplies the Hebbian trace to form the full plastic component of the connection.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thus-at-any-time-the-total-effective-weight-of-the-connection-between-neurons-i-and-j-is-the-sum-of-the-baseline-fixed-weight-w-i-j-，plus-the-hebbian-trace"><span class="nav-number">1.3.9.</span> <span class="nav-text">Thus, at any time , the total , effective weight of the connection between neurons i and j is the sum of the baseline(fixed) weight $w_{i,j}$，plus the hebbian trace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The"><span class="nav-number">1.3.10.</span> <span class="nav-text">The</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Hebbian-trace-Hebb-i-j"><span class="nav-number">1.3.11.</span> <span class="nav-text">The Hebbian trace $Hebb_{i,j}$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-Work"><span class="nav-number">1.4.</span> <span class="nav-text">Related Work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments-and-Results"><span class="nav-number">1.5.</span> <span class="nav-text">Experiments and Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这个实验被设计用来证明可微塑性实际上在一个元学习框架内起作用，-并且展示它提供了决定性的优势。"><span class="nav-number">1.5.1.</span> <span class="nav-text">这个实验被设计用来证明可微塑性实际上在一个元学习框架内起作用， 并且展示它提供了决定性的优势。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式记忆-：-二元模式"><span class="nav-number">1.5.2.</span> <span class="nav-text">模式记忆 ： 二元模式</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuyu Zhao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">Total Visits<span id="busuanzi_value_site_pv"></span>time</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">The Total Visitors<span id="busuanzi_value_site_uv"></span>population</span>
+    <span class="post-meta-divider">|</span>
+
+
+
+
+    
+
+
+  <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://yuuzhao.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/';
+          this.page.identifier = '2019/03/14/PLASTICITY-NEURAL-NETWORKS/';
+          this.page.title = 'Plasticity Neural Networks';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://yuuzhao.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
