@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="yuuzhao">
 <meta property="og:description" content="Plastic NNAbstractHow can we build  agents that keep learning from experience , after their initial training ?Take inspiration from the main mechanism of learning in biological brains : synaptic plast">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/1.png">
-<meta property="og:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/2.png">
-<meta property="og:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/3.png">
-<meta property="og:updated_time" content="2019-03-16T14:19:04.875Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/3.png">
+<meta property="og:updated_time" content="2019-03-17T00:46:44.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Plasticity Neural Networks">
 <meta name="twitter:description" content="Plastic NNAbstractHow can we build  agents that keep learning from experience , after their initial training ?Take inspiration from the main mechanism of learning in biological brains : synaptic plast">
-<meta name="twitter:image" content="http://yoursite.com/PLASTICITY-NEURAL-NETWORKS/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/14/PLASTICITY-NEURAL-NETWORKS/1.png">
 
 
 
@@ -443,8 +443,7 @@
 <li>因此， 在任何时候， 神经元i和j之间的所有有效权重， 是固定的权重$w_{i,j}$， 加上Hebbian trace$Hebb_{i,j}$ 乘以塑性系数。</li>
 </ul>
 <h3 id="The"><a href="#The" class="headerlink" title="The"></a>The</h3><ul>
-<li>神经元j的输出 $x_j(t)$ 如下</li>
-<li><img src="/PLASTICITY-NEURAL-NETWORKS/1.png" alt=""></li>
+<li>神经元j的输出 $x_j(t)$ 如下<br><img src="/2019/03/14/PLASTICITY-NEURAL-NETWORKS/1.png" alt=""></li>
 <li>$\sigmma$ 是一个非线性函数 </li>
 <li>input 代表所有给神经元j提供输入的神经元。 </li>
 <li><p>通过这种方式， 取决于权值$w_{i,j}$ 和$\alpha_{i,j}$， </p>
@@ -466,8 +465,7 @@
 <li><p>然而因为，这个权重衰减， hebb迹在输入缺少的情况下衰减到0</p>
 </li>
 <li>不幸的是， 其他更复杂的Hebb规则可以在刺激缺少的情况下，无限保持权重值的稳定性。</li>
-<li>一个更有名的例子就是Oja’s 规则 ， 因此可以用Oja规则替换上面公式中的第二个公式</li>
-<li><img src="/PLASTICITY-NEURAL-NETWORKS/2.png" alt=""></li>
+<li>一个更有名的例子就是Oja’s 规则 ， 因此可以用Oja规则替换上面公式中的第二个公式<br><img src="/2019/03/14/PLASTICITY-NEURAL-NETWORKS/2.png" alt=""></li>
 <li>这种方法可以训练神经网络形成持续任意时间的记忆。 </li>
 <li>为了描述我们研究的灵活性， 我们证明了两个规则， 在下面报告的实验中</li>
 </ul>
@@ -476,8 +474,7 @@
 <li>可以执行这个任务的神经网络被称为 内容可寻址记忆， 或者 自动联想神经网络</li>
 <li>这个任务是一个有用的测试， 因为使用Hebbian plastic 连接手动设计的循环神经网络可以成功解决这个二元模式</li>
 <li>因此，如果可微的塑性网络有任何帮助， 它也应该嫩自动解决这个问题，这个问题就是， 自动设计可以执行已经存在的手动设计神经网络可以完成的任务 的神经网络</li>
-<li>图1描绘了这个任务的一个生命周期， 该网络连续显示一组5个二维模式。 </li>
-<li><img src="/PLASTICITY-NEURAL-NETWORKS/3.png" alt=""></li>
+<li>图1描绘了这个任务的一个生命周期， 该网络连续显示一组5个二维模式。<br><img src="/2019/03/14/PLASTICITY-NEURAL-NETWORKS/3.png" alt=""></li>
 <li>每个二元模式由1000个元素组成， 每一个不是1就是-1， 分别用红色和蓝色表示。 </li>
 <li><p>每个模式展示了10个周期步骤</p>
 <ul>
