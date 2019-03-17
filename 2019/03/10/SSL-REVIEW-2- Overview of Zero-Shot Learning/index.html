@@ -380,22 +380,21 @@
 <li>a seen classes:$c_{i}^{j}$</li>
 </ul>
 </li>
-<li>the Set of Unseen Classes:<pre><code>$$U=\\{c_{i}^{u}\\|i=1,N_{u}\\}$$
+<li>the Set of Unseen Classes:<pre><code>    $$U=\\{c_{i}^{u}\\|i=1,N_{u}\\}$$
 </code></pre></li>
 <li>an unseen class:$C_{i}^{u}$</li>
 <li>Denote that ：${S}\bigcap{U}=\varnothing$</li>
 <li>The Feature Space:$X$, which is $D-dimensional$: $R^{D}$</li>
 <li><p>The set of labeled training instances belonging to seen classes:</p>
-<p>$$D^{tr}=\{(x_{i}^{tr},y_{i}^{tr})\in X\times S\}$$</p>
-</li>
+<script type="math/tex; mode=display">D^{tr}=\\{(x_{i}^{tr},y_{i}^{tr})\in X\times S\\}</script></li>
 <li><p>for each labeled instance $(x_i^{tr},y_i^{tr})$,</p>
 <ul>
 <li>$x_i^{tr}$ ：the instance in the feature space ，</li>
 <li>$y_i^{tr}$： the corresponding class label .</li>
 </ul>
 </li>
-<li>The set of testing instances:<br>  $$X^{te}=\{x_i^{te}\in X\}<em>{i=1}^{N</em>{te}}$$<br>  where each $x_i^{te}$ is a testing instance in the feature space.</li>
-<li>The corresponding class labels for $X^{te}$:<br>  $$Y^{te}=\{y_i^{te}\in U\}<em>{i=1}^{N</em>{te}}$$<br>  which are able to be predicted.<h2 id="Definition-1-1-Zero-Shot-Learning"><a href="#Definition-1-1-Zero-Shot-Learning" class="headerlink" title="Definition 1.1 (Zero-Shot Learning)"></a>Definition 1.1 (Zero-Shot Learning)</h2></li>
+<li>The set of testing instances:<script type="math/tex; mode=display">X^{te}=\\{x_i^{te}\in X\\}_{i=1}^{N_{te}}</script>  where each $x_i^{te}$ is a testing instance in the feature space.</li>
+<li>The corresponding class labels for $X^{te}$:<script type="math/tex; mode=display">Y^{te}=\\{y_i^{te}\in U\\}_{i=1}^{N_{te}}</script>  which are able to be predicted.<h2 id="Definition-1-1-Zero-Shot-Learning"><a href="#Definition-1-1-Zero-Shot-Learning" class="headerlink" title="Definition 1.1 (Zero-Shot Learning)"></a>Definition 1.1 (Zero-Shot Learning)</h2></li>
 </ul>
 </li>
 <li>Given labeled training instances $D^{tr}$ belonging to the seen classes $S$,zero-shot learning aims to learn a classifier $f^u(\cdot):X\rightarrow U$  that can classify testing instances $X^{te}$(i.e. to predict $Y^{te}$) belonging to the unseen classes $U$.</li>
@@ -537,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

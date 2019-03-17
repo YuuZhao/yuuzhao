@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/headicon-32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/headicon-16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/head-icon.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SSL,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yuuzhao" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Thinking note of PNNPNN是什么 Plastic Network塑性网络  Plastic可塑性， 灵感来源  来自神经生物学中的 突触可塑性  是指神经细胞之间的连接， 即突触，其连接强度可调节的特性。 比如，巴甫洛夫的经典条件反射实验，每次给狗喂食的同时摇铃。当狗见到食物时，自然会分泌唾液。但巴甫洛夫发现，狗在听到铃声时即使不给食物，也会分泌唾液。   赫布理论  突触前神">
+<meta name="keywords" content="SSL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thinking note of PNN">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/index.html">
+<meta property="og:site_name" content="yuuzhao">
+<meta property="og:description" content="Thinking note of PNNPNN是什么 Plastic Network塑性网络  Plastic可塑性， 灵感来源  来自神经生物学中的 突触可塑性  是指神经细胞之间的连接， 即突触，其连接强度可调节的特性。 比如，巴甫洛夫的经典条件反射实验，每次给狗喂食的同时摇铃。当狗见到食物时，自然会分泌唾液。但巴甫洛夫发现，狗在听到铃声时即使不给食物，也会分泌唾液。   赫布理论  突触前神">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/13.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/3.png">
+<meta property="og:updated_time" content="2019-03-17T11:59:18.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thinking note of PNN">
+<meta name="twitter:description" content="Thinking note of PNNPNN是什么 Plastic Network塑性网络  Plastic可塑性， 灵感来源  来自神经生物学中的 突触可塑性  是指神经细胞之间的连接， 即突触，其连接强度可调节的特性。 比如，巴甫洛夫的经典条件反射实验，每次给狗喂食的同时摇铃。当狗见到食物时，自然会分泌唾液。但巴甫洛夫发现，狗在听到铃声时即使不给食物，也会分泌唾液。   赫布理论  突触前神">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/">
+
+
+
+
+
+  <title>Thinking note of PNN | yuuzhao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5469094107eb88f91cbb80b4256365fb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yuuzhao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yuyu Zhao's Personal Website</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuyu Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuuzhao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Thinking note of PNN</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-17T10:32:52+08:00">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+			
+          </span>
+		  
+			
+				<span class="post-visit-count">
+					&nbsp; | &nbsp; 
+					<!--眼睛图标-->
+					<i class="fa fa-eye"></i>&nbsp;
+					<span id="detail_cnt">1</span>
+				</span>
+			
+			
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/17/THINKING-NOTE-OF-PNN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/17/THINKING-NOTE-OF-PNN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Thinking-note-of-PNN"><a href="#Thinking-note-of-PNN" class="headerlink" title="Thinking note of PNN"></a>Thinking note of PNN</h1><h2 id="PNN"><a href="#PNN" class="headerlink" title="PNN"></a>PNN</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><ul>
+<li><p>Plastic Network塑性网络</p>
+<ul>
+<li><p>Plastic可塑性， 灵感来源</p>
+<ul>
+<li><p>来自神经生物学中的 突触可塑性</p>
+<ul>
+<li>是指神经细胞之间的连接， 即突触，其连接强度可调节的特性。</li>
+<li>比如，巴甫洛夫的经典条件反射实验，每次给狗喂食的同时摇铃。当狗见到食物时，自然会分泌唾液。但巴甫洛夫发现，狗在听到铃声时即使不给食物，也会分泌唾液。</li>
+</ul>
+</li>
+<li><p>赫布理论</p>
+<ul>
+<li>突触前神经元向突触后神经元的持续重复的刺激可以导致突触传递效能的增加</li>
+<li>反射活动的持续与重复会导致神经元稳定性的持久性提升</li>
+<li>当神经元A的轴突与神经元B很近并参与了对B的重复持续的兴奋时，这两个神经元或其中一个便会发生某些生长过程或代谢变化，致使A作为能使B兴奋的细胞之一，它的效能增强了。</li>
+<li><p>神经元”A”必须对神经元”B”的激发“作出了一定贡献”，神经元”A”的激发必须在神经元”B”之先，而不能同时激发。</p>
+<ul>
+<li>tips: 神经元之间的神经冲动是单方向传导， 只能由一个神经元的轴突传导给另一个神经元的细胞体或树突 ，而不能向相反的方向传导，因为神经递质只能在突触前神经元的轴突末梢释放。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>突触</p>
+<ul>
+<li>根据突触接触部位分类</li>
+<li><p>神经细胞之间如何开始建立突触的</p>
+<ul>
+<li>上级神经细胞的轴突末端的生长锥顺着信号分子的指引来到目的神经细胞，然后通过来回的物质传递交换，来形成进一步更紧密的关系。</li>
+<li>上级神经细胞的生长锥会特化为轴突末端，形成突触前膜，准备释放神经递质。突触后细胞会在突触结合的位置特化出突触后膜，聚集了神经递质的受体和电压门控钙通道。</li>
+<li>两个细胞形成稳定联系了，就会把一些多余的突触结构简化掉，只留下足够有效的突触数量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本文使用的规则</p>
+<ul>
+<li><p>赫布规则：if a neuron repeatedly takes part in making another neuron fire, the connection between them is strengthened </p>
+<ul>
+<li><blockquote>
+<p>如果一个神经元不断参与另一个神经元的激活，它们之间的联系就会加强</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>人工神经网络中的非塑性网络</p>
+<ul>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/4.png" alt=""></li>
+<li>前后神经元之间的影响通过一个权值参数来表示</li>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/5.png" alt=""></li>
+<li>使用梯度下降方法训练网络使得权值收敛</li>
+<li>在训练完成后，权值参数不再变化</li>
+</ul>
+</li>
+<li><p>人工神经网络中的塑性网络</p>
+<ul>
+<li><p>前后神经元之间的影响会随着前级神经元对后级神经元持续重复的刺激增加。</p>
+<ul>
+<li>如果两个神经元之间的联系减弱，则影响会降低</li>
+<li>如果两个神经元之间的联系增强，则影响会增强</li>
+</ul>
+</li>
+<li><p>这样的影响是如何表示的呢？</p>
+<ul>
+<li><p><img src="/2019/03/17/THINKING-NOTE-OF-PNN/1.png" alt=""></p>
+<ul>
+<li>(@？如何从神经细胞学的角度来解释这个公式呢？)</li>
+</ul>
+</li>
+<li><p>基础权重</p>
+<ul>
+<li>@？初始值</li>
+</ul>
+</li>
+<li><p>非线性函数$\sigma$</p>
+<ul>
+<li>@？在公式中代表了什么？</li>
+</ul>
+</li>
+<li><p>赫布迹</p>
+<ul>
+<li>存储着塑性组件</li>
+<li>@代表前级神经元参与到后级神经元的神经活动中，联系的程度</li>
+</ul>
+</li>
+<li><p>塑性系数</p>
+<ul>
+<li>表示了塑性组件Hebbian迹和基础权重的相对重要性</li>
+</ul>
+</li>
+<li><p>全局塑性系数</p>
+<ul>
+<li>塑性系数与赫布迹相乘，得到全局的塑性组件</li>
+</ul>
+</li>
+<li><p>学习率$\elta$</p>
+<ul>
+<li>是整个网络的学习标量参数</li>
+<li>作为权重衰减项出现， 保证了Hebbian迹的失控正反馈</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在小样本学习中的关系</p>
+</li>
+</ul>
+<h3 id="可以解决什么问题"><a href="#可以解决什么问题" class="headerlink" title="可以解决什么问题"></a>可以解决什么问题</h3><ul>
+<li>记忆和重建训练中没有看到的新颖的高维自然图像集，传统非塑性神经网络无法解决这个问题</li>
+<li>可以为非琐碎的任务（ non-trivial tasks ）训练大型网络</li>
+</ul>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><ul>
+<li><p>实验1，模式记忆之二元模式实验</p>
+<ul>
+<li><p>二元模式</p>
+<ul>
+<li>一些长度为N向量，向量的每个元素只有1和-1两种取值。</li>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/6.png" alt="概念序列"></li>
+<li>每个二元模式由1000个元素组成， 每一个不是1就是-1， 分别用红色和蓝色表示。 </li>
+</ul>
+</li>
+<li><p>网络结构</p>
+<ul>
+<li><p>使用Hebbian plastic 连接的人工循环神经网络</p>
+<ul>
+<li>@？循环神经网络是什么</li>
+</ul>
+</li>
+<li><p>可以执行这个任务的神经网络被称为内容可寻址记忆， 或者 自动联想神经网络</p>
+</li>
+<li>可微的塑性网络可以自动解决这个问题，它可以 自动设计可以执行现有的人工神经网络可以完成的任务 的神经网络</li>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/7.png" alt="完全循环神经网络"></li>
+<li><p>每一个模式元素都有一个神经元。 加上一个固定的输出神经元（“bias”），一共有（1001）个神经元</p>
+<ul>
+<li>@？输出神经元是如何与其他神经元连接的？</li>
+</ul>
+</li>
+<li><p>在输入值不为0的情况下，输入的模式以模式中对应元素的值来固定每个神经元的值</p>
+</li>
+<li><p>如果是降维模式下的输入，对于该模式下的0值，对应的神经元不会接收输入， 只从横向连接（lateral connections）获得输入，它们必须从横向连接重建正确的预期输出值。</p>
+<ul>
+<li>@？横向连接是什么？</li>
+</ul>
+</li>
+<li><p>输出直接从神经元s的激活（activation）中读取</p>
+<ul>
+<li>@?激活？</li>
+</ul>
+</li>
+<li><p>使用了简单的衰减的赫布规则来更新赫布迹</p>
+</li>
+<li>这个神经网络有两个训练参数 ，1001个神经元， 加起来就是 $1001<em>1001</em>2$个参数需要优化</li>
+</ul>
+</li>
+<li><p>训练过程</p>
+<ul>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/8.png" alt=""></li>
+<li><p>输入训练样本</p>
+<ul>
+<li>一组二元模式序列</li>
+<li>循环重复地输入若干个不同的二元模式</li>
+</ul>
+</li>
+<li><p>降维退化模式</p>
+<ul>
+<li>从输入的训练样本中随机选择一个作为预测模式，通过将该模式的一半位设置为0来对其进行降级</li>
+<li>将降级后的预测模式输入给网络</li>
+<li>网络会对预测模式重建，在网络的记忆中绘制出损失的位（图中用浅色表示预测），得到一个针对预测模式的预测输出值</li>
+<li>利用该预测输出值，与模式正确值之间的平方和误差（the summed squared error）作为损失（loss）</li>
+<li><p>根据这个损失进行梯度下降，反向传播， 更新两类权值参数： 基本权值$w_{i,j}$与塑性系数$\alpha_{i,j}$</p>
+<ul>
+<li>这些系数是通过一个Adam求解器使用学习率0.001优化的</li>
+<li>@？如何进行梯度下降，反向传播，更新两类权值参数的？</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>效果如何</p>
+<ul>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/9.png" alt=""></li>
+<li>上图给出了10次使用不同随机种子训练的结果</li>
+<li>在大概200个周期是，错误率收敛到很低，残留的错误小于1%</li>
+<li>与之相对比的，使用非塑性循环神经网络的学习曲线如下</li>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/10.png" alt=""></li>
+<li>使用了50位的二元模式输入</li>
+<li>绿色表示， 2050个神经元的非塑性循环神经网络的效果</li>
+<li>红色表示，2050个神经元的LSTM的效果</li>
+<li>蓝色表示，使用相同参数下，只使用了51个神经元，可微带塑性权重的神经元的效果</li>
+<li><p>塑性网络和非塑性循环神经网络的比较</p>
+<ul>
+<li>非塑性网络也可以解决这个任务，但是需要额外的神经元存储事先已经见过的模式</li>
+<li>然而，尽管有了很多探索，我们都不能成功的使用非塑性RNN或LSTM解决这个任务</li>
+<li>我们只能减少模式规模到50位，每个生命周期只有2个模式， 并且只展示3个生命周期步骤</li>
+<li>最好的结果也需要增加2000个额外的神经元（总共2050个神经元）</li>
+<li>对于非塑性RNN， 误差稳定在一个比较高的地方</li>
+<li>对于LSTM，解决了这个任务，但是用了大概500000个周期</li>
+<li>而塑性循环神经网络， 在2000个生命周期里迅速使得误差率降到了0.01，比LSTM快250倍。</li>
+</ul>
+</li>
+<li><p>启发</p>
+<ul>
+<li>尽管这个任务在PNN中表现比LSTM好</li>
+<li>那么在其他的领域中，也可能比现有的LSTM模型表现更好</li>
+<li>甚至可以通过给现有的LSTM模型增加可塑性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实验2，模式记忆之自然图像</p>
+<ul>
+<li><p>自然图像</p>
+<ul>
+<li><p>输入的数据集来自CIFAR-10， 是32*32的灰度图像</p>
+<ul>
+<li>包含了6000张</li>
+</ul>
+</li>
+<li><p><img src="/2019/03/17/THINKING-NOTE-OF-PNN/11.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>网络结构与训练过程</p>
+<ul>
+<li><p>与实验1二元模式基本保持一致</p>
+<ul>
+<li>有1025个神经元</li>
+<li>$2<em>1025</em>1025$个参数</li>
+<li>每个生命周期包含3个图片，每次随机显示3次，一共20个时间步长，在图像展示中有三个输入为0的时间步骤</li>
+</ul>
+</li>
+<li><p>不同在于，在降维退化的时候， 丢失了图像的上半部分或者下半部分</p>
+<ul>
+<li>这样避免了相邻像素之间天然的关联性</li>
+<li>@？那么在退化以后输入给神经网络，这时，对于空白的神经元，这些神经元的值是从哪里来的呢？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>结果</p>
+<ul>
+<li><p>模型成功学习到去表现这个记忆重建原来未见到的自然图像的non-trial任务</p>
+<ul>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/11.png" alt=""></li>
+</ul>
+</li>
+<li><p><img src="/2019/03/17/THINKING-NOTE-OF-PNN/12.png" alt="基线权重矩阵">训练最终的权值矩阵</p>
+</li>
+<li>每一列描述了单个细胞的输入，垂直相邻条目描述 来自图像中水平相邻像素的输入。 </li>
+<li>请注意两个矩阵之间的重要结构。</li>
+<li><p><img src="/2019/03/17/THINKING-NOTE-OF-PNN/13.png" alt="塑性系数矩阵">训练最终的塑性系数矩阵</p>
+<ul>
+<li>与传统同质塑性Hopfield网络相比， 这个塑性矩阵显示了相当大的结构</li>
+<li>一些结构(对角线)与相邻像素的高相关性有关，</li>
+<li>而另一些方面(中段附近的交替带)则是由于选择在预测图像中对一半的区域归零导致的</li>
+<li>我们假设，当一个测试刺激出现时，这个中段附近的宽交替带支持快速清理持续活动的网络。</li>
+</ul>
+</li>
+<li><p>虽然所学习的网络结构是有结构的，这种结构可能只是学习过程的产物，没有内在的有用性。</p>
+<ul>
+<li>为了检验这种可能性，我们比较了全塑性网络和一个具有共享塑性系数的相似网络， （所有连接共享相同的塑性系数$\alpha$）</li>
+<li>因此塑性系数仍然可训练，但是作为一个单独的参数在所有连接中共享。</li>
+<li><p>因为我们用了衰减的赫布公式， 这个共享塑性结构与一个快速权重网络具有相似性。 </p>
+<ul>
+<li>然而，与快速权值方法不同，可微塑性允许我们通过梯度下降学习快速权值的重要性及其学习率(而且，我们不实现快速权值网络使用的每个时间步长的神经活动迭代计算)。</li>
+<li>@？这个快速权重网络是什么？</li>
+</ul>
+</li>
+<li><p><img src="/2019/03/17/THINKING-NOTE-OF-PNN/14.png" alt="二者比较">塑性系数矩阵</p>
+<ul>
+<li>主要结果是，每个连接的独立塑性系数提高了这项任务的性能。</li>
+<li>这种比较表明，塑性系数矩阵和权重矩阵图中所观察到的结构实际上是有用的，在这样的设置下，为记忆和重建自然图像构建了一个创新的结构</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实验3、一元模式分类</p>
+</li>
+</ul>
+<h3 id="具体是如何解决的"><a href="#具体是如何解决的" class="headerlink" title="具体是如何解决的"></a>具体是如何解决的</h3><ul>
+<li>网络是如何设计的？</li>
+<li>网络是如何训练的？</li>
+<li><p>基础权值是如何优化的？</p>
+<ul>
+<li>在整个生命周期被保存</li>
+<li>通过梯度下降法优化</li>
+<li>在一个生命周期最大化期待的性能</li>
+</ul>
+</li>
+<li><p>塑性系数是如何优化的？</p>
+<ul>
+<li>在整个生命周期被保存</li>
+<li>通过梯度下降法优化</li>
+<li>在一个生命周期最大化期待的性能</li>
+</ul>
+</li>
+<li><p>Hebbian赫布迹是如何更新的？</p>
+<ul>
+<li>按照一定规则优化，有很多规则，下面介绍两种规则</li>
+<li><p>会衰减的赫布迹更新规则</p>
+<ul>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/2.png" alt=""></li>
+<li><p>迭代更新步骤</p>
+<ul>
+<li>Hebbian迹在每个生命周期的开始初始化为0 </li>
+<li>@？分析公式如何更新</li>
+<li>@？学习率$\elta$从何而来，如何更新？</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>因为权重衰减， hebb迹在输入缺少的情况下衰减到0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Oja’s 规则</p>
+<ul>
+<li><img src="/2019/03/17/THINKING-NOTE-OF-PNN/3.png" alt=""></li>
+<li><p>优势</p>
+<ul>
+<li>可以在刺激缺少的情况下，无限保持权重值的稳定性。</li>
+<li>可以训练神经网络形成持续任意时间的记忆</li>
+</ul>
+</li>
+<li><p>迭代更新步骤</p>
+<ul>
+<li>@？分析公式如何更新</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>为什么这样就能解决呢？</p>
+</li>
+</ul>
+<h3 id="解决的效果怎样"><a href="#解决的效果怎样" class="headerlink" title="解决的效果怎样"></a>解决的效果怎样</h3><h3 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h3><ul>
+<li>为基于梯度的神经网络训练开辟了一条新的研究途径，而且具有重要的现实意义</li>
+<li>同时也证明了神经结构的元特性通常与进化或先天设计有关，实际上是可以梯度下降的</li>
+</ul>
+<h2 id="先导知识"><a href="#先导知识" class="headerlink" title="先导知识"></a>先导知识</h2><h3 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h3><h3 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h3><h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><h3 id="权值更新"><a href="#权值更新" class="headerlink" title="权值更新"></a>权值更新</h3><p><em>XMind: ZEN - Trial Version</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SSL/" rel="tag"># SSL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/14/PLASTICITY-NEURAL-NETWORKS/" rel="next" title="Plasticity Neural Networks">
+                <i class="fa fa-chevron-left"></i> Plasticity Neural Networks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Yuyu Zhao">
+            
+              <p class="site-author-name" itemprop="name">Yuyu Zhao</p>
+              <p class="site-description motion-element" itemprop="description">The hardest choices require the strongest wills.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thinking-note-of-PNN"><span class="nav-number">1.</span> <span class="nav-text">Thinking note of PNN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PNN"><span class="nav-number">1.1.</span> <span class="nav-text">PNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么"><span class="nav-number">1.1.1.</span> <span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以解决什么问题"><span class="nav-number">1.1.2.</span> <span class="nav-text">可以解决什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验"><span class="nav-number">1.1.3.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体是如何解决的"><span class="nav-number">1.1.4.</span> <span class="nav-text">具体是如何解决的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决的效果怎样"><span class="nav-number">1.1.5.</span> <span class="nav-text">解决的效果怎样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#意义"><span class="nav-number">1.1.6.</span> <span class="nav-text">意义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先导知识"><span class="nav-number">1.2.</span> <span class="nav-text">先导知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环神经网络"><span class="nav-number">1.2.1.</span> <span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向传播"><span class="nav-number">1.2.2.</span> <span class="nav-text">反向传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降"><span class="nav-number">1.2.3.</span> <span class="nav-text">梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权值更新"><span class="nav-number">1.2.4.</span> <span class="nav-text">权值更新</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuyu Zhao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">Total Visits<span id="busuanzi_value_site_pv"></span>time</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">The Total Visitors<span id="busuanzi_value_site_uv"></span>population</span>
+    <span class="post-meta-divider">|</span>
+
+
+
+
+    
+
+
+  <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://yuuzhao.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/03/17/THINKING-NOTE-OF-PNN/';
+          this.page.identifier = '2019/03/17/THINKING-NOTE-OF-PNN/';
+          this.page.title = 'Thinking note of PNN';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://yuuzhao.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
