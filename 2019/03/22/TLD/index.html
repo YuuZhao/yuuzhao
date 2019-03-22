@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/headicon-32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/headicon-16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/head-icon.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Tracking,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yuuzhao" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="TLD是什么 将传统的跟踪算法和传统的检测算法相结合来解决被跟踪目标在被跟踪过程中发生的形变、部分遮挡等问题。 通过一种改进的在线学习机制不断更新跟踪模块的“显著特征点”和检测模块的目标模型及相关参数，从而使得跟踪效果更加稳定、鲁棒、可靠。  要解决的问题 长时间跟踪的关键问题  目标重新出现在相机视野中， 系统能检测到它，并开始重新跟踪 难点  过程中目标发生形状变化， 光照，尺度， 遮挡">
+<meta name="keywords" content="Tracking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TLD">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/TLD/index.html">
+<meta property="og:site_name" content="yuuzhao">
+<meta property="og:description" content="TLD是什么 将传统的跟踪算法和传统的检测算法相结合来解决被跟踪目标在被跟踪过程中发生的形变、部分遮挡等问题。 通过一种改进的在线学习机制不断更新跟踪模块的“显著特征点”和检测模块的目标模型及相关参数，从而使得跟踪效果更加稳定、鲁棒、可靠。  要解决的问题 长时间跟踪的关键问题  目标重新出现在相机视野中， 系统能检测到它，并开始重新跟踪 难点  过程中目标发生形状变化， 光照，尺度， 遮挡">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/TLD/7.png">
+<meta property="og:updated_time" content="2019-03-22T03:30:18.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TLD">
+<meta name="twitter:description" content="TLD是什么 将传统的跟踪算法和传统的检测算法相结合来解决被跟踪目标在被跟踪过程中发生的形变、部分遮挡等问题。 通过一种改进的在线学习机制不断更新跟踪模块的“显著特征点”和检测模块的目标模型及相关参数，从而使得跟踪效果更加稳定、鲁棒、可靠。  要解决的问题 长时间跟踪的关键问题  目标重新出现在相机视野中， 系统能检测到它，并开始重新跟踪 难点  过程中目标发生形状变化， 光照，尺度， 遮挡">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/22/TLD/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/22/TLD/">
+
+
+
+
+
+  <title>TLD | yuuzhao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5469094107eb88f91cbb80b4256365fb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yuuzhao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yuyu Zhao's Personal Website</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/TLD/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuyu Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuuzhao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TLD</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T10:30:20+08:00">
+                2019-03-22
+              </time>
+            
+
+            
+
+            
+			
+          </span>
+		  
+			
+				<span class="post-visit-count">
+					&nbsp; | &nbsp; 
+					<!--眼睛图标-->
+					<i class="fa fa-eye"></i>&nbsp;
+					<span id="detail_cnt">1</span>
+				</span>
+			
+			
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/22/TLD/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/22/TLD/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="TLD"><a href="#TLD" class="headerlink" title="TLD"></a>TLD</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><ul>
+<li>将传统的跟踪算法和传统的检测算法相结合来解决被跟踪目标在被跟踪过程中发生的形变、部分遮挡等问题。</li>
+<li>通过一种改进的在线学习机制不断更新跟踪模块的“显著特征点”和检测模块的目标模型及相关参数，从而使得跟踪效果更加稳定、鲁棒、可靠。</li>
+</ul>
+<h3 id="要解决的问题"><a href="#要解决的问题" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><ul>
+<li><p>长时间跟踪的关键问题</p>
+<ul>
+<li>目标重新出现在相机视野中， 系统能检测到它，并开始重新跟踪</li>
+<li><p>难点</p>
+<ul>
+<li>过程中目标发生形状变化， 光照，尺度， 遮挡</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="原有方法"><a href="#原有方法" class="headerlink" title="原有方法"></a>原有方法</h3><ul>
+<li>原有跟踪方法， 当检测模块检测到被跟踪目标后， 开始进入跟踪模块</li>
+<li><p>步骤</p>
+<ul>
+<li>检测模块检测目标</li>
+<li>当检测到被跟踪目标后， 进入跟踪模块</li>
+<li>此后检测模块不会介入到跟踪过程</li>
+<li><p>缺陷</p>
+<ul>
+<li>被跟踪目标发生形变遮挡时， 跟踪容易失败</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="我的理解思路"><a href="#我的理解思路" class="headerlink" title="我的理解思路"></a>我的理解思路</h3><ul>
+<li>所以需要找到一种方法可以识别出目标的形变（目标尽管发生形变，但依然存在的相似性）</li>
+<li>如果要训练各种形变的情况， 样本量是非常小的， 而且对于从来没有出现过的目标， 根本就没有训练样本</li>
+</ul>
+<h3 id="TLD主要框架"><a href="#TLD主要框架" class="headerlink" title="TLD主要框架"></a>TLD主要框架</h3><ul>
+<li><p>tracking</p>
+<ul>
+<li>利用当前帧和下一帧</li>
+<li><p>作用</p>
+<ul>
+<li>跟踪连续帧间的运动， 当物体始终可见时跟踪器才会有效</li>
+</ul>
+</li>
+<li><p>预测下一帧目标</p>
+<ul>
+<li>利用金字塔光流法，和norm cross correlation预测</li>
+<li>根据物体在前一帧已知的位置估计在当前帧的位置， 这样就会产生仪表物体运动的轨迹， 从这条轨迹可以为学习模块产生正样本</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li>1、先从当前帧目标均匀取10*10个点，记为n1。</li>
+<li>2、利用这些点用光流法预测取下一帧对应的点n2</li>
+<li>3、再用这些对应的点用光流法返回预测当前帧所在的点n3，n1和n3的距离就是误差（FB_error）</li>
+<li>4、ncc利用n1的每个点和n2每个点为中心提取10*10的像素矩阵</li>
+<li>5、对上一步中得到的像素矩阵， 使用亚像素精度， 两者进行计算互相关归一化模板匹配， 得到相似值</li>
+<li>6、取大于ncc相似值中值和小于FB_error的n2点和对应的n1点， 基于这些点计算原目标缩放和位移</li>
+</ul>
+</li>
+<li><p>追踪算法</p>
+<ul>
+<li><p>Median-Flow追踪算法</p>
+<ul>
+<li>采用的是Lucas-Kanade追踪器，也就是常说的光流法追踪器</li>
+<li>只需要知道给定若干追踪点，追踪器会根据像素的运动情况确定这些追踪点在下一帧的位置。</li>
+</ul>
+</li>
+<li><p>TLD原作认为一个好的追踪算法</p>
+<ul>
+<li><p>具有正反向连续性</p>
+<ul>
+<li>无论是按照时间上的正序追踪还是反序追踪， 产生的轨迹应该是一样的。 </li>
+<li><p>根据这个性质规定了FB误差FB_error</p>
+<ul>
+<li>从时间t的初始位置x(t)开始追踪产生时间t+p的位置x(t+p)，再从位置x(t+p)反向追踪产生时间t的预测位置x`(t)，初始位置和预测位置之间的欧氏距离就作为追踪器在t时间的FB误差。</li>
+<li><img src="/2019/03/22/TLD/1.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>追踪点的选择</p>
+<ul>
+<li>首先在上一帧t的物体包围框里均匀地产生一些点，然后用Lucas-Kanade追踪器正向追踪这些点到t+1帧，再反向追踪到t帧，计算FB误差，筛选出FB误差最小的一半点作为最佳追踪点。</li>
+<li>最后根据这些点的坐标变化和距离的变化计算t+1帧包围框的位置和大小（平移的尺度取中值，缩放的尺度取中值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>learning</p>
+<ul>
+<li>利用第一帧，和框定目标，训练，初始化在线模型</li>
+<li>用预测到的下一帧目标， 来学习修正Randofern在线模型， 和最近邻在线模型</li>
+<li>根据追踪器和检测器产生的正负样本， 迭代训练分类器， 改善检测器的精度</li>
+<li><p>P-N学习</p>
+<ul>
+<li>半监督机器学习算法</li>
+<li>针对检测器对样本分类时产生的两种错误， 提供两种“专家”进行纠正</li>
+<li><p>两个专家</p>
+<ul>
+<li><p>P专家</p>
+<ul>
+<li>检出漏检的正样本（正样本被分为负样本）</li>
+</ul>
+</li>
+<li><p>N专家</p>
+<ul>
+<li>改正误检的正样本（负样本误分为正样本）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>样本产生</p>
+<ul>
+<li>使用扫描框对图像逐行扫描，确定的区域成为图像元patch, 成为一个样本</li>
+<li>扫描产生的样本是未标签样本， 需要用分类器分类，确定它的标签</li>
+<li><p>如果算法言确定物体在t+1帧的位置</p>
+<ul>
+<li><p>从检测器产生的包围框中， 筛选出十个与物体位置距离最近的包围框</p>
+<ul>
+<li>两个包围框的交面积/并面积&gt;0.7</li>
+</ul>
+</li>
+<li><p>对每个包围框做微小的仿射变化， 产生20个图像元，这样就产生了200个正样本</p>
+</li>
+<li><p>在选出若干记录较远的包围框，产生负样本</p>
+<ul>
+<li>交的面积/并的面积&lt;0.2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>这样产生的样本是已标签的样本， 把这些样本放入训练集， 用于更新分类器的参数</p>
+</li>
+<li><img src="/2019/03/22/TLD/2.png" alt=""></li>
+</ul>
+</li>
+<li><p>算法的结果应该具有“结构性”</p>
+<ul>
+<li>每一针图像内，物体最多只出现在一个位置</li>
+<li>相邻帧物体间的运动是连续的， 连续帧的位置可以构成一条较平滑的轨迹</li>
+<li>整个追踪过程中， 轨迹可能是分段的， 因为物体有可能中途消失， 之后再度出现</li>
+<li><p>P专家的作用</p>
+<ul>
+<li>寻找数据在<strong>时间</strong>上的结构性</li>
+<li>利用<strong>追踪器</strong>的结果预测物体在t+1帧的位置</li>
+<li>如果这个位置（包围框）被检测器分类为负，P专家就把这个位置改为正。</li>
+<li>P专家要保证物体在连续帧上出现的位置可以构成连续的轨迹</li>
+</ul>
+</li>
+<li><p>N专家的作用</p>
+<ul>
+<li>寻找数据在<strong>空间</strong>上的结构性</li>
+<li>把<strong>检测器</strong>产生的和P专家产生的所有正样本进行比较，</li>
+<li>选择出一个最可信的位置，保证物体最多只出现在一个位置上，</li>
+<li>把这个位置作为TLD算法的追踪结果。同时这个位置也用来重新初始化追踪器。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>detection</p>
+<ul>
+<li><p>通过learing学习到的在线模型进行目标预测</p>
+<ul>
+<li>对每一帧图像都做全面的扫描</li>
+<li>找到与目标物体相似的所有外观的位置</li>
+<li>从检测产生的结果中，产生正样本， 和负样本， 交给学习模块</li>
+<li>从所有正样本和负样本中选出一个最可信的位置，作为这一帧TLD的输出结果</li>
+<li>然后用这个结果更新追踪器的起始位置</li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li>估计跟踪器的误差， 如果误差很大就改正追踪器的结果 </li>
+</ul>
+</li>
+<li><p>根据目标大小，把一帧图像分割为很多不同尺寸的图像片</p>
+</li>
+<li><p>三层级联分类器：把不适合的图像片去掉，剩余的就是可能是目标的图像片</p>
+<ul>
+<li><p>方差分类器</p>
+<ul>
+<li>若图像片的方差小于【方差在线模型】的一半， 则认为这些是背景，丢弃。</li>
+</ul>
+</li>
+<li><p>RandomFern分类器</p>
+<ul>
+<li><p>利用【RandomFern在线模型】计算每个图像片的后验概率</p>
+<ul>
+<li>训练时， 把图像片与在线模型重叠度＞0.6的分为 好的box，＜0.2为坏的box。</li>
+<li>每个图像片会产生13个点对，利用这些点对产生13位二进制码，上二进制码记为1</li>
+<li>最后，用好的box产生的每个二进制码的出现次数/（好box+坏box的出现次数），便得出每个不同二进制码的概率</li>
+</ul>
+</li>
+<li><p>若小于阈值，就可以丢弃</p>
+</li>
+</ul>
+</li>
+<li><p>最近邻分类器</p>
+<ul>
+<li>利用【最近邻在线模型】计算出图像片与在线模型的相关相似度</li>
+<li>若相关相似度大于阈值， 才能通过分类器， 否则被丢弃</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>其他参考文章</p>
+<ul>
+<li><a href="https://blog.csdn.net/sinat_31135199/article/details/70739106" target="_blank" rel="noopener">https://blog.csdn.net/sinat_31135199/article/details/70739106</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>根据跟踪器和检测器预测下一帧目标所在位置</p>
+<ul>
+<li><p>1、跟踪器：跟踪到目标图像片t1</p>
+<ul>
+<li>如果跟踪不到目标， 但检测目标聚类只有一种， 就用该聚类结果预测目标位置</li>
+</ul>
+</li>
+<li><p>2、检测器：检测到目标</p>
+</li>
+<li><p>3、检测器：将检测到的图像片聚类</p>
+<ul>
+<li>若只有一个结果与检测结果差距较远， 且检测器的conf较大， 用检测器结果纠正跟踪器</li>
+<li>若能检测不能跟踪，就用检测结果纠正跟踪器</li>
+</ul>
+</li>
+<li><p>4、检测器：找出聚类后、与跟踪器找到的图像片，重叠度小于0.5,且相似相关度大的图像片， d1</p>
+</li>
+<li>利用t1和d1进行加权平均</li>
+<li>预测到下一帧目标所在位置</li>
+</ul>
+</li>
+</ul>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><ul>
+<li><img src="/2019/03/22/TLD/3.png" alt=""></li>
+<li>1、检测器由一系列包围框产生样本， 经过三层级联分类器产生正样本， 放入样本集。</li>
+<li>2、追踪器：估计出物体的新位置</li>
+<li>3、P专家：根据追踪器估计的新位置产生正样本</li>
+<li>4、N专家：从这些正样本里选出一个最可信的，同时将其他正样本标记为负</li>
+<li>5、最后用正样本更新检测器的分类器参数， 并确定下一帧物体包围框的位置</li>
+</ul>
+<h3 id="程序运行框架"><a href="#程序运行框架" class="headerlink" title="程序运行框架"></a>程序运行框架</h3><ul>
+<li><img src="/2019/03/22/TLD/4.png" alt=""></li>
+<li><img src="/2019/03/22/TLD/5.png" alt=""></li>
+<li><img src="/2019/03/22/TLD/6.png" alt=""></li>
+<li><img src="/2019/03/22/TLD/7.png" alt=""></li>
+</ul>
+<p><em>XMind: ZEN - Trial Version</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TRACKING/" rel="tag"># Tracking</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/THINKING-NOTE-OF-PNN/" rel="next" title="Thinking note of PNN">
+                <i class="fa fa-chevron-left"></i> Thinking note of PNN
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Yuyu Zhao">
+            
+              <p class="site-author-name" itemprop="name">Yuyu Zhao</p>
+              <p class="site-description motion-element" itemprop="description">The hardest choices require the strongest wills.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TLD"><span class="nav-number">1.</span> <span class="nav-text">TLD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么"><span class="nav-number">1.1.</span> <span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要解决的问题"><span class="nav-number">1.2.</span> <span class="nav-text">要解决的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原有方法"><span class="nav-number">1.3.</span> <span class="nav-text">原有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的理解思路"><span class="nav-number">1.4.</span> <span class="nav-text">我的理解思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TLD主要框架"><span class="nav-number">1.5.</span> <span class="nav-text">TLD主要框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">1.6.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序运行框架"><span class="nav-number">1.7.</span> <span class="nav-text">程序运行框架</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuyu Zhao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">Total Visits<span id="busuanzi_value_site_pv"></span>time</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">The Total Visitors<span id="busuanzi_value_site_uv"></span>population</span>
+    <span class="post-meta-divider">|</span>
+
+
+
+
+    
+
+
+  <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://yuuzhao.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/03/22/TLD/';
+          this.page.identifier = '2019/03/22/TLD/';
+          this.page.title = 'TLD';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://yuuzhao.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
