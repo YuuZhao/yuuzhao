@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-22T15:43:24.639Z</updated>
+  <updated>2019-03-23T12:43:29.084Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>热键</title>
+    <link href="http://yoursite.com/2019/03/23/%E7%83%AD%E9%94%AE/"/>
+    <id>http://yoursite.com/2019/03/23/热键/</id>
+    <published>2019-03-23T12:29:32.000Z</published>
+    <updated>2019-03-23T12:43:29.084Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="创建虚拟桌面"><a href="#创建虚拟桌面" class="headerlink" title="创建虚拟桌面"></a>创建虚拟桌面</h2><pre><code>CTRL + WIN + D切换  win + ctrl +  左右关闭    win + ctrl + f4 </code></pre><h2 id="单桌面切换"><a href="#单桌面切换" class="headerlink" title="单桌面切换"></a>单桌面切换</h2><pre><code>win + m  全部最小化win + , </code></pre><h2 id="任务栏：-win-1-2-…9"><a href="#任务栏：-win-1-2-…9" class="headerlink" title="任务栏： win + 1..2.. …9"></a>任务栏： win + 1..2.. …9</h2><h2 id="分屏：-win-左右"><a href="#分屏：-win-左右" class="headerlink" title="分屏：  win + 左右"></a>分屏：  win + 左右</h2><h2 id="切换任务：-ctrl-win-tab"><a href="#切换任务：-ctrl-win-tab" class="headerlink" title="切换任务： ctrl + win + tab"></a>切换任务： ctrl + win + tab</h2><pre><code>win + tab alt + tab</code></pre><h2 id="打开任务管理器，强制关闭窗口：-ctrl-shift-esc"><a href="#打开任务管理器，强制关闭窗口：-ctrl-shift-esc" class="headerlink" title="打开任务管理器，强制关闭窗口： ctrl + shift + esc"></a>打开任务管理器，强制关闭窗口： ctrl + shift + esc</h2><h2 id="打开文档管理器：-win-E"><a href="#打开文档管理器：-win-E" class="headerlink" title="打开文档管理器： win + E"></a>打开文档管理器： win + E</h2><h2 id="使用放大镜：-win"><a href="#使用放大镜：-win" class="headerlink" title="使用放大镜： win + +/-"></a>使用放大镜： win + +/-</h2><h2 id="捕捉屏幕：-win-prin"><a href="#捕捉屏幕：-win-prin" class="headerlink" title="捕捉屏幕：  win + prin.."></a>捕捉屏幕：  win + prin..</h2><h2 id="操作中心打开：-win-A"><a href="#操作中心打开：-win-A" class="headerlink" title="操作中心打开： win + A"></a>操作中心打开： win + A</h2><h2 id="进入设置：-win-i"><a href="#进入设置：-win-i" class="headerlink" title="进入设置： win + i"></a>进入设置： win + i</h2><h2 id="与cortana对话：-win-c"><a href="#与cortana对话：-win-c" class="headerlink" title="与cortana对话： win + c"></a>与cortana对话： win + c</h2><h2 id="使用游戏栏：-win-G-手动录影"><a href="#使用游戏栏：-win-G-手动录影" class="headerlink" title="使用游戏栏： win + G 手动录影"></a>使用游戏栏： win + G 手动录影</h2><pre><code>启动停止： </code></pre><h2 id="锁住PC-：-win-L"><a href="#锁住PC-：-win-L" class="headerlink" title="锁住PC ： win + L"></a>锁住PC ： win + L</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;创建虚拟桌面&quot;&gt;&lt;a href=&quot;#创建虚拟桌面&quot; class=&quot;headerlink&quot; title=&quot;创建虚拟桌面&quot;&gt;&lt;/a&gt;创建虚拟桌面&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;CTRL + WIN + D
+
+切换  win + ctrl +  左右
+
+关闭    wi
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Tracker</title>
