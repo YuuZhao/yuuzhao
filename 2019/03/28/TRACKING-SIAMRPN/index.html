@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="The hardest choices require the strongest wills.">
+<meta name="description" content="Tracker-DeepLearningSiamRPN++基于Siamese 网络的跟踪器 将跟踪构想为 一个目标模板和一个搜索区域之间的卷及特征相互关系。  与最先进的算法相比，依然存在精度差 不能利用来自深层神经网络的特征，如比ResNet-50更深层的网络  本文贡献 证明了核心原因在于： 缺乏严格的平移不变性（the lack of strict translation invarianc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tracking-SiamRpn++">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/TRACKING-SIAMRPN/index.html">
 <meta property="og:site_name" content="yuuzhao">
-<meta property="og:description" content="The hardest choices require the strongest wills.">
+<meta property="og:description" content="Tracker-DeepLearningSiamRPN++基于Siamese 网络的跟踪器 将跟踪构想为 一个目标模板和一个搜索区域之间的卷及特征相互关系。  与最先进的算法相比，依然存在精度差 不能利用来自深层神经网络的特征，如比ResNet-50更深层的网络  本文贡献 证明了核心原因在于： 缺乏严格的平移不变性（the lack of strict translation invarianc">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-28T02:01:35.416Z">
+<meta property="og:updated_time" content="2019-03-29T10:37:38.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tracking-SiamRpn++">
-<meta name="twitter:description" content="The hardest choices require the strongest wills.">
+<meta name="twitter:description" content="Tracker-DeepLearningSiamRPN++基于Siamese 网络的跟踪器 将跟踪构想为 一个目标模板和一个搜索区域之间的卷及特征相互关系。  与最先进的算法相比，依然存在精度差 不能利用来自深层神经网络的特征，如比ResNet-50更深层的网络  本文贡献 证明了核心原因在于： 缺乏严格的平移不变性（the lack of strict translation invarianc">
 
 
 
@@ -354,7 +354,156 @@
       
 
       
-        
+        <h1 id="Tracker-DeepLearning"><a href="#Tracker-DeepLearning" class="headerlink" title="Tracker-DeepLearning"></a>Tracker-DeepLearning</h1><h2 id="SiamRPN"><a href="#SiamRPN" class="headerlink" title="SiamRPN++"></a>SiamRPN++</h2><h3 id="基于Siamese-网络的跟踪器"><a href="#基于Siamese-网络的跟踪器" class="headerlink" title="基于Siamese 网络的跟踪器"></a>基于Siamese 网络的跟踪器</h3><ul>
+<li>将跟踪构想为 一个目标模板和一个搜索区域之间的卷及特征相互关系。 </li>
+<li>与最先进的算法相比，依然存在精度差</li>
+<li>不能利用来自深层神经网络的特征，如比ResNet-50更深层的网络</li>
+</ul>
+<h3 id="本文贡献"><a href="#本文贡献" class="headerlink" title="本文贡献"></a>本文贡献</h3><ul>
+<li>证明了核心原因在于： 缺乏严格的平移不变性（the lack of strict translation invariance）</li>
+<li>本文通过一个简单有效的空间感知抽样策略（spatial aware sampling strategy）突破了这个限制。</li>
+<li>本文成功训练了一个 ResNet-driven Siamese tracker，对性能有显著提升。</li>
+<li>提供了一个新的模型结构来执行分层和深度聚合，这不仅提高了准确率，还减少了模型大小。</li>
+<li>实验结果， 在当前在5个最大的目标追踪基准数据集上， 我们获得了最好结果。 </li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>目标检测目前的挑战</p>
+<ul>
+<li>光照变化</li>
+<li>遮挡</li>
+<li>背景杂乱</li>
+</ul>
+</li>
+<li><p>目前方法</p>
+<ul>
+<li><p>Siamese network based trackers</p>
+<ul>
+<li>将视觉目标跟踪问题看成：通过目标模板和搜索区域的特征表示的相关性 来 学习一个通用的相似性映射。</li>
+<li>为了确保跟踪效率， 离线学习Siamese相似性函数通常在运行时是固定的。 </li>
+</ul>
+</li>
+<li><p>CFNet tracker &amp; DSiame tracker </p>
+<ul>
+<li>分别通过一个运行中的平均模板，和一个快速转换模块，更新追踪模块。</li>
+</ul>
+</li>
+<li><p>SiameRNN Tracker</p>
+<ul>
+<li>在Siamese network之后介绍了区域推荐网络（region proposal network）, 然后执行联合了分类和回归来跟踪。</li>
+</ul>
+</li>
+<li><p>DaSiameRPN tracker</p>
+<ul>
+<li>进一步介绍了一个干扰器模块（distractor-aware module）,提高了模型的识别能力</li>
+</ul>
+</li>
+<li><p>目前方法的缺陷</p>
+<ul>
+<li>在 精度和速度的平衡上， 即使是最好表现的Siamese 跟踪器， 在精度上依然与目前最好的方法存在显著差距。</li>
+<li>这些方法都的网络结构都在类似于AlexNet的网络上构建了自己的网络来训练一个Siamese跟踪器</li>
+<li>这些方法都多次尝试更复杂的架构，如ResNet ， 但是性能并不好</li>
+</ul>
+</li>
+<li><p>分析原因</p>
+<ul>
+<li>本文发现关键问题来自 “绝对平移不变性”的破坏。（the strict translation invariance）</li>
+<li>由于目标可能出现在搜索区域的任何位置， 目标模板的特征表示应该保持空间不变性（spatial invariant）</li>
+<li>我们发现， 在新的深层结构中， 只有AlexNet 的 zero-padding variant 才能满足这个空间不变性约束。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本文为了解除这个约束</p>
+<ul>
+<li>提出了一个简单但有效的 采样策略（sampling strategy）来打破Siamese 跟踪器的空间不变性限制。 </li>
+<li>本文成功训练了一个 SiamRPN 跟踪器，使用 ResNet 作为主干网络（backbone network）， 得到了显著的性能提高。</li>
+<li>得益于ResNet 的结构， 我们提出了一个基于层的互相关运算特征聚合结构（layer-wise feature aggravation structure for the cross-correlatio operation）, 帮助跟踪器从多层次特征（multiple levels）中预测相似度映射（the similarity map）</li>
+<li>通过分析 Siamese 网络结构的互相关性（cross-correlations）,我们发现他的两个网络分支在参数数量上高度不平衡。 </li>
+<li>因此我们进一步提出了一种基于深度的分离关系结构， 它不仅大大减少了目标模板中的参数数量， 也使得整个模型的训练过程更加稳定。 </li>
+<li>此外， 我们还观察到一个有趣的现象， 相同类别的对象在相同通道上具有较高的响应，而其余通道的响应则被抑制。</li>
+<li>正交特性（The orthogonal property）也提高了跟踪性能</li>
+</ul>
+</li>
+<li><p>总结，本文的主要贡献在以下四个方面</p>
+<ul>
+<li>提供了一个Siameses 跟踪器的深度分析，证明了当使用深层网络时准确率的下降原因来自 严格平移不变性的破坏。 </li>
+<li>提出了一个简单但高效的采样策略， 来打破空间不变性限制，成功地训练了基于ResNet 结构的 Siamese 跟踪器</li>
+<li>提出了一种基于层次的互相关操作特征聚合结构，这帮助跟踪器从多层次上学的的特征来预测相似度图。 </li>
+<li>我们提出了一个深度可分离的相关结构来增强互相关，从而产生与不同语义相关的多重相似度图。</li>
+</ul>
+</li>
+<li><p>实验效果</p>
+<ul>
+<li><p>测试基准：5个最大的跟踪基准（benchmarks）</p>
+<ul>
+<li>OTB2015</li>
+<li>VOT2018</li>
+<li>UAV123</li>
+<li>LaSOT</li>
+<li>TrackingNet</li>
+</ul>
+</li>
+<li><p>测试效果： 35FPS</p>
+</li>
+</ul>
+</li>
+<li><p>此外，我们还提出了一种基于MobileNet 主干的快速跟踪器， 保持了可竞争的性能，训练速度70FPS. </p>
+</li>
+</ul>
+<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><ul>
+<li><p>Recent trackers (focus on the Siamese)</p>
+<ul>
+<li>[3]  将信号处理领域的卷积理论引入到视觉跟踪，将目标模板匹配问题转化为频域（frequency domain）的相关运算。</li>
+<li>根据这种转换， 基于相关性的跟踪器不仅得到了搞笑的运行速度， 如果使用了合适的特征也会提高准确性[16 50 51 8 6 ]</li>
+<li>深度学习模型广泛应用在视觉跟踪，跟踪算法基于深度特征表示到的相关滤波方法，[9 5]在留下的跟踪基准和比赛中占据了目前最先进的准确率。 </li>
+<li>近期， 基于Siamese网络的跟踪器因为其在跟踪准确性和效率上的平衡， 取得了重要关注。  [40, 1, 15, 42, 41, 12, 24, 43,<br>52, 44]</li>
+<li>这些跟踪器 将 视觉跟踪问题视作 互关系问题（cross-correlation problem），并且期望从端到端学习中利用深度网络的优势</li>
+<li>为了从两个分支的 交叉关系中创作一个相似度图，他们训练了一个加入了两个神经分支的 Y形神经网络，一个是为了目标模板( template )，另一个是为了搜索区域（search region） </li>
+<li><p>此外， 这些两个分支在训练阶段可以保持固定[40, 1, 15, 43, 24, 52]，或者在线更新来适应目标的外观变化。[42,41,12]</p>
+<ul>
+<li>42</li>
+<li>41</li>
+<li>12</li>
+</ul>
+</li>
+<li><p>目前最好的Siamese 跟踪器 通过在Siamese网络后面增加一个区域推荐网络（Region proposal network）增强了跟踪效果,并且取得了很好结果。 [24,52]</p>
+</li>
+<li><p>但是在OTB基准上， 他们的追踪准确率与最先进的深度追踪器（ECO[5]）(MDNet 32)依然存在较大差距</p>
+<ul>
+<li>ECO [5]</li>
+<li>MDNet [32]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Recent developments of deep architectures</p>
+<ul>
+<li>AlexNet [23] 在2012年被提出， 这个网络结构的研究迅速成长并且很多复杂的深度网络被提出了。</li>
+<li>VGGNet[37] </li>
+<li>GoogleNet[38]</li>
+<li>ResNet[14]</li>
+<li>MobileNet[18]</li>
+<li>这些深度结构不仅在神经网络的设计上提供了更深的理解， 也推动了很多计算机视觉任务的发展，如目标检测[33]， 图像分割[4]， 和人体姿势估计[39]。</li>
+<li>在深度视觉跟踪器中， 网络结构通常包括不超过5个由AlexNet 或者 VGGNet定制构成层。 </li>
+<li>这个现象被解释为 浅层特征（shallow features）最有助于目标的准确定位。 </li>
+<li>在本文的工作中，我们讨论了Siamese跟踪器可以有效得到提高，如果模型在整个孪生<br>网络中得到适当的训练，那么使用更深层次的模型，孪生追踪器的性能可以显著提高。</li>
+</ul>
+</li>
+<li><p>benchmark datasets</p>
+<ul>
+<li>[45, 46, 19, 21, 10, 30] </li>
+<li>45 46 10 : 为不同算法的比较提供了公平实验台</li>
+<li>每年一次的跟踪挑战（22, 19,20， 21），持续不断推动跟踪算法的发展</li>
+</ul>
+</li>
+<li><p>methodologies</p>
+<ul>
+<li>[16,51, 6, 7, 17, 32, 9, 5, 43, 52, 49].</li>
+</ul>
+</li>
+</ul>
+<p><em>XMind: ZEN - Trial Version</em></p>
+
       
     </div>
     
@@ -458,8 +607,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -497,7 +655,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
@@ -530,6 +688,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tracker-DeepLearning"><span class="nav-number">1.</span> <span class="nav-text">Tracker-DeepLearning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SiamRPN"><span class="nav-number">1.1.</span> <span class="nav-text">SiamRPN++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于Siamese-网络的跟踪器"><span class="nav-number">1.1.1.</span> <span class="nav-text">基于Siamese 网络的跟踪器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本文贡献"><span class="nav-number">1.1.2.</span> <span class="nav-text">本文贡献</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.3.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关工作"><span class="nav-number">1.1.4.</span> <span class="nav-text">相关工作</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
